@@ -26,23 +26,24 @@ button {
   background-color: #ff3300;
   height: 15vw;
   width: 20vw;
-  font-size: 5vw;
+  font-size: 5vh;
   cursor: pointer;
   outline: none;
   border: none;
   color: white;
+  
 }
 
 #display-area {
   margin: 0 auto;
   margin-top: 5vh;
   margin-bottom: 5vh;
-  width: 30vw;
-  height: 30vh;
+  width: 70vw;
+  height: 40vh;
   border: 5px solid #ff3300;
 }
 #display-area h1 {
-  font-size: 15vh;
+  font-size: 10vh;
   text-align: center;
   color: white;
   margin: 0 auto;
