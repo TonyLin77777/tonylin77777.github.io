@@ -1,29 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Mahjong Counter
+    </title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
     <link href="index.css" type="text/css" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/png" href="favicon.png">
-    <title>Clicker</title>
   </head>
   <body>
-    <h1>Clicker</h1>
-    <div id="display-area"></div>
-    <div id="button-container">
-      <button id="up">
-        UP
-      </button>
-      <button id="down">
-        DOWN
-      </button>
-      <button id="reset">
-        RESET
-      </button>
-      <button id="timer">
-        TIMER
-      </button>
+    <h1 id="title">Mahjong Counter</h1>
+    <div>
+      <h2>Tony</h2>
+      <h2 id="tm" class="display-money">0</h2>
+      <h2 id="display-wins-tony" class="display-wins-area">0</h2>
+      <input type="number" id="ti" /><br /><br />
     </div>
-    <script src="index.js"></script>
+    <br />
+    <br />
+    <br />
+    <div>
+      <h2>Eric</h2>
+      <h2 id="em" class="display-money">0</h2>
+      <h2 id="display-wins-eric" class="display-wins-area">0</h2>
+      <input type="number" id="ei" /><br /><br />
+    </div>
+    <br />
+    <br />
+    <br />
+    <div>
+      <h2>Mom</h2>
+      <h2 id="mm" class="display-money">0</h2>
+      <h2 id="display-wins-mom" class="display-wins-area">0</h2>
+      <input type="number" id="mi" /><br /><br />
+    </div>
+    <br />
+    <br />
+    <br />
+    <div>
+      <h2>Dad</h2>
+      <h2 id="dm" class="display-money">0</h2>
+      <h2 id="display-wins-dad" class="display-wins-area">0</h2>
+      <input type="number" id="di" /><br /><br />
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <h1 id="round">
+      ROUND:
+      <h1 id="round-number">1</h1>
+    </h1>
+    <div id="history">
+      <p>History</p>
+    </div>
+    <script src="script.js">
+      // document.getElementById("tony").innerHTML = "New text!";
+    </script>
   </body>
 </html>
