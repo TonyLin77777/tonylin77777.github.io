@@ -11,8 +11,11 @@ let wins = {
   mom: 0,
   dad: 0,
 };
-let round_counter_temp;
-let round_counter;
+
+let true_tony = true;
+let true_eric = true;
+let true_dad = true;
+let true_mom = true;
 
 let ti = document.getElementById("ti");
 let ei = document.getElementById("ei");
@@ -26,8 +29,11 @@ setMoney = () => {
   document.getElementById("dm").innerHTML = money.dad;
 };
 
+let rounds = 2;
+let turns_left = 16;
+let temp_count = 0;
+
 let check_Rounds = (wins) => {
-  let rounds = 2;
   if (
     wins.tony >= rounds - 1 &&
     wins.eric >= rounds - 1 &&
@@ -36,7 +42,12 @@ let check_Rounds = (wins) => {
   ) {
     rounds++;
   }
-  document.getElementById("round-number").innerHTML = rounds - 1;
+
+  if (temp_count === 4 || temp_count === 8 || temp_count === 12) {
+    document.getElementById("round-number").innerHTML = rounds - 2;
+  } else {
+    document.getElementById("round-number").innerHTML = rounds - 1;
+  }
 };
 
 setMoney();
@@ -61,6 +72,22 @@ ti.addEventListener("keyup", function (event) {
         wins.tony--;
         document.getElementById("display-wins-tony").innerHTML = wins.tony;
       }
+    }
+
+    let name = "tony";
+    document.getElementById("mom-name").style.color = "black";
+    document.getElementById("dad-name").style.color = "black";
+    document.getElementById("eric-name").style.color = "black";
+    document.getElementById("tony-name").style.color = "red";
+
+    if (true_tony) {
+      turns_left--;
+      document.getElementById("turns-left").innerHTML = turns_left;
+      temp_count++;
+      true_tony = false;
+      true_eric = true;
+      true_dad = true;
+      true_mom = true;
     }
 
     check_Rounds(wins);
@@ -90,6 +117,22 @@ ei.addEventListener("keyup", function (event) {
       }
     }
 
+    let name = "eric";
+
+    document.getElementById("tony-name").style.color = "black";
+    document.getElementById("mom-name").style.color = "black";
+
+    document.getElementById("dad-name").style.color = "black";
+    document.getElementById("eric-name").style.color = "green";
+    if (true_eric) {
+      turns_left--;
+      document.getElementById("turns-left").innerHTML = turns_left;
+      temp_count++;
+      true_tony = true;
+      true_eric = false;
+      true_dad = true;
+      true_mom = true;
+    }
     check_Rounds(wins);
     ei.value = "";
     setMoney();
@@ -115,6 +158,23 @@ mi.addEventListener("keyup", function (event) {
         wins.mom++;
         document.getElementById("display-wins-mom").innerHTML = wins.mom;
       }
+    }
+    let name = "mom";
+
+    document.getElementById("dad-name").style.color = "black";
+    document.getElementById("tony-name").style.color = "black";
+    document.getElementById("eric-name").style.color = "black";
+
+    document.getElementById("mom-name").style.color = "purple";
+
+    if (true_mom) {
+      turns_left--;
+      document.getElementById("turns-left").innerHTML = turns_left;
+      temp_count++;
+      true_tony = true;
+      true_eric = true;
+      true_dad = true;
+      true_mom = false;
     }
     check_Rounds(wins);
     mi.value = "";
@@ -142,6 +202,24 @@ di.addEventListener("keyup", function (event) {
         document.getElementById("display-wins-dad").innerHTML = wins.dad;
       }
     }
+
+    let name = "dad";
+
+    document.getElementById("dad-name").style.color = "white";
+    document.getElementById("tony-name").style.color = "black";
+    document.getElementById("eric-name").style.color = "black";
+    document.getElementById("mom-name").style.color = "black";
+
+    if (true_dad) {
+      turns_left--;
+      document.getElementById("turns-left").innerHTML = turns_left;
+      temp_count++;
+      true_tony = true;
+      true_eric = true;
+      true_dad = false;
+      true_mom = true;
+    }
+
     check_Rounds(wins);
     di.value = "";
     setMoney();

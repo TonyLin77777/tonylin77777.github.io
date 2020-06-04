@@ -1,3 +1,6 @@
+body {
+  background-color: skyblue;
+}
 div {
   display: block;
   width: 100%;
@@ -32,7 +35,7 @@ h3 {
 }
 
 #title {
-  text-align: center;
+  text-align: left;
   font-size: 5rem;
 }
 
@@ -41,6 +44,14 @@ h3 {
   display: inline-block;
   position: relative;
   left: 620px;
-  bottom: 330px;
+  bottom: 430px;
+  font-size: 5rem;
+}
+
+.turns-left-sentence {
+  display: inline-block;
+  position: relative;
+  left: 620px;
+  bottom: 430px;
   font-size: 5rem;
 }
