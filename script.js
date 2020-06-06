@@ -22,6 +22,11 @@ let position = {
   dad: 0,
 };
 
+// variables for repeated wins
+let counter = 1;
+let counter2 = 1;
+let counter3 = 1;
+let counter4 = 1;
 // variables for event listeners
 let ti = document.getElementById("ti");
 let ei = document.getElementById("ei");
@@ -77,6 +82,13 @@ dad_position.addEventListener("keyup", function (event) {
 // sets the beginning money every one has
 setMoney();
 
+// sets all the repeated wins to hidden
+document.getElementById("tony-king").style.visibility ='hidden';
+document.getElementById("eric-king").style.visibility ='hidden';
+document.getElementById("mom-king").style.visibility = 'hidden';
+document.getElementById("dad-king").style.visibility ='hidden';
+
+
 // tony's event listener
 ti.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
@@ -100,6 +112,12 @@ ti.addEventListener("keyup", function (event) {
       }
     }
 
+    // changes the visibility
+    document.getElementById("tony-king").style.visibility ='hidden';
+document.getElementById("eric-king").style.visibility ='hidden';
+document.getElementById("mom-king").style.visibility = 'hidden';
+document.getElementById("dad-king").style.visibility ='hidden';
+
     // to add colour to the names
     document.getElementById("mom-name").style.color = "black";
     document.getElementById("dad-name").style.color = "black";
@@ -109,6 +127,13 @@ ti.addEventListener("keyup", function (event) {
     // figures out how many turns are left
     if (position.tony === round_counter) {
       document.getElementById("turns-left").innerHTML = turns_left;
+      document.getElementById("tony-king").innerHTML = counter;
+      counter ++;
+      counter4 = 1;
+      counter2 = 1;
+      counter3 = 1;
+      document.getElementById("tony-king").style.visibility ='visible';
+    
     } else {
       if (round_counter < 4) {
         round_counter++;
@@ -156,6 +181,11 @@ ei.addEventListener("keyup", function (event) {
         document.getElementById("display-wins-eric").innerHTML = wins.eric;
       }
     }
+        // changes the visibility
+        document.getElementById("eric-king").style.visibility ='hidden';
+        document.getElementById("tony-king").style.visibility ='hidden';
+        document.getElementById("mom-king").style.visibility = 'hidden';
+        document.getElementById("dad-king").style.visibility ='hidden';
 
     // to add colour to the names
     document.getElementById("tony-name").style.color = "black";
@@ -166,6 +196,12 @@ ei.addEventListener("keyup", function (event) {
     // figures out how many turns are left
     if (position.eric === round_counter) {
       document.getElementById("turns-left").innerHTML = turns_left;
+      document.getElementById("eric-king").innerHTML = counter2;
+      counter2 ++;
+      counter = 1;
+      counter4 = 1;
+      counter3 = 1;
+      document.getElementById("eric-king").style.visibility ='visible';
     } else {
       if (round_counter < 4) {
         round_counter++;
@@ -214,6 +250,11 @@ mi.addEventListener("keyup", function (event) {
         document.getElementById("display-wins-mom").innerHTML = wins.mom;
       }
     }
+        // changes the visibility
+        document.getElementById("mom-king").style.visibility ='hidden';
+        document.getElementById("tony-king").style.visibility ='hidden';
+        document.getElementById("eric-king").style.visibility = 'hidden';
+        document.getElementById("dad-king").style.visibility ='hidden';
 
     // to add colour to the names
     document.getElementById("dad-name").style.color = "black";
@@ -225,6 +266,12 @@ mi.addEventListener("keyup", function (event) {
     // figures out how many turns are left
     if (position.mom === round_counter) {
       document.getElementById("turns-left").innerHTML = turns_left;
+      document.getElementById("mom-king").innerHTML = counter3;
+      counter3 ++;
+      counter = 1;
+      counter2 = 1;
+      counter4 = 1;
+      document.getElementById("mom-king").style.visibility ='visible';
     } else {
       if (round_counter < 4) {
         round_counter++;
@@ -275,6 +322,12 @@ di.addEventListener("keyup", function (event) {
       }
     }
 
+            // changes the visibility
+            document.getElementById("dad-king").style.visibility ='hidden';
+            document.getElementById("tony-king").style.visibility ='hidden';
+            document.getElementById("mom-king").style.visibility = 'hidden';
+            document.getElementById("eric-king").style.visibility ='hidden';
+
     // to add colour to the names
     document.getElementById("dad-name").style.color = "white";
     document.getElementById("tony-name").style.color = "black";
@@ -284,6 +337,12 @@ di.addEventListener("keyup", function (event) {
     // figures out how many turns are left
     if (position.dad === round_counter) {
       document.getElementById("turns-left").innerHTML = turns_left;
+      document.getElementById("dad-king").innerHTML = counter4;
+      counter4 ++;
+      counter = 1;
+      counter2 = 1;
+      counter3 = 1;
+      document.getElementById("dad-king").style.visibility ='visible';
     } else {
       if (round_counter < 4) {
         round_counter++;
