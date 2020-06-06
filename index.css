@@ -55,3 +55,9 @@ h3 {
   bottom: 430px;
   font-size: 5rem;
 }
+
+.position-rankings {
+  position: absolute;
+  left: 400px;
+  width: 50px;
+}
