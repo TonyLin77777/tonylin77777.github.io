@@ -9,9 +9,10 @@
   </head>
   <body>
     <h1 id="title">Mahjong Counter</h1>
-    <div>
+    <div class="person-div">
       <h2 id="tony-name" class="display-name">Tony</h2>
       <h2 id="tm" class="display-money">0</h2>
+      <h2 class="prize-won" id="tony-prize"> 0 </h2>
       <h2 id="display-wins-tony" class="display-wins-area">0</h2>
       <h2 class="king" id="tony-king">  </h2>
 
@@ -24,9 +25,10 @@
     <br />
     <br />
     <br />
-    <div>
+    <div class="person-div">
       <h2 id="eric-name" class="display-name">Eric</h2>
       <h2 id="em" class="display-money">0</h2>
+      <h2 class="prize-won" id="eric-prize"> 0 </h2>
       <h2 id="display-wins-eric" class="display-wins-area">0</h2>
       <h2 class="king" id="eric-king">  </h2>
       
@@ -39,9 +41,10 @@
     <br />
     <br />
     <br />
-    <div>
+    <div class="person-div">
       <h2 id="mom-name" class="display-name">Mom</h2>
       <h2 id="mm" class="display-money">0</h2>
+      <h2 class="prize-won" id="mom-prize"> 0 </h2>
       <h2 id="display-wins-mom" class="display-wins-area">0</h2>
       <h2 class="king" id="mom-king">  </h2>
 
@@ -54,9 +57,10 @@
     <br />
     <br />
     <br />
-    <div>
+    <div id="tony-div" class="person-div">
       <h2 id="dad-name" class="display-name">Dad</h2>
       <h2 id="dm" class="display-money">0</h2>
+      <h2 class="prize-won" id="dad-prize"> 0 </h2>
       <h2 id="display-wins-dad" class="display-wins-area">0</h2>
       <h2 class="king" id="dad-king">  </h2>
 
@@ -137,8 +141,80 @@
          
       </td>
       </tr>
-      
     </table>
+
+  </table>
+  <table id="money-made-chart">
+    <tr> 
+      <th colspan="4">
+        Money Received
+      </th>
+    </tr>
+    <tr>
+      <td>
+        Tony
+      </td>
+      <td>
+        Eric
+      </td>
+      <td>
+        Mom
+      </td>
+      <td>
+        Dad
+      </td>
+    </tr>
+    <tr>
+      <td id="tony-moneymade">
+0
+      </td>
+      <td id="eric-moneymade">
+       0
+     </td>
+     <td id="mom-moneymade">
+       0
+    </td>
+    <td id="dad-moneymade">
+       0
+    </td>
+    </tr>
+  </table>
+
+  <table id="highest-money-made-chart">
+    <tr> 
+      <th colspan="4">
+        Highest Single Win
+      </th>
+    </tr>
+    <tr>
+      <td>
+        Tony
+      </td>
+      <td>
+        Eric
+      </td>
+      <td>
+        Mom
+      </td>
+      <td>
+        Dad
+      </td>
+    </tr>
+    <tr>
+      <td id="tony-highest-money-received">
+0
+      </td>
+      <td id="eric-highest-money-received">
+       0
+     </td>
+     <td id="mom-highest-money-received">
+       0
+    </td>
+    <td id="dad-highest-money-received">
+       0
+    </td>
+    </tr>
+  </table>
     <h1 id="round">
       ROUND: &nbsp;
       <h1 id="round-number">  1 </h1>
@@ -152,7 +228,7 @@
     <h3 id="title-wins"> wins / total wins</h3>
 </br>
 </br>
-    <script src="script.js">
+    <script src="index.js">
     </script>
   </body>
 </html>
