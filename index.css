@@ -42,7 +42,11 @@ left: 500px;
   text-align: left;
   font-size: 5rem;
 }
-
+.red-circle {
+  position: absolute;
+  left: 400px;
+  z-index: 10;
+}
 #round,
 #round-number {
   display: inline-block;
@@ -65,3 +69,4 @@ left: 500px;
   left: 400px;
   width: 50px;
 }
+

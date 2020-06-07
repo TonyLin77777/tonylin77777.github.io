@@ -44,6 +44,19 @@ setMoney = () => {
   document.getElementById("mm").innerHTML = money.mom;
   document.getElementById("dm").innerHTML = money.dad;
 };
+   // changes the visibility for the red circle (finds out who current leader is)
+   // and how many times u won while being the leader
+let set_visibility = () => {
+     document.getElementById('tony-red').style.visibility ='hidden';
+     document.getElementById('eric-red').style.visibility ='hidden';
+     document.getElementById('dad-red').style.visibility ='hidden';
+     document.getElementById('mom-red').style.visibility ='hidden';
+     document.getElementById("eric-king").style.visibility ='hidden';
+     document.getElementById("tony-king").style.visibility ='hidden';
+     document.getElementById("mom-king").style.visibility = 'hidden';
+     document.getElementById("dad-king").style.visibility ='hidden';
+}
+
 
 // The following 4 event listener gets the user positions
 let tony_position = document.getElementById("position-tony");
@@ -82,12 +95,15 @@ dad_position.addEventListener("keyup", function (event) {
 // sets the beginning money every one has
 setMoney();
 
-// sets all the repeated wins to hidden
+// sets visibility to hidden
 document.getElementById("tony-king").style.visibility ='hidden';
 document.getElementById("eric-king").style.visibility ='hidden';
 document.getElementById("mom-king").style.visibility = 'hidden';
 document.getElementById("dad-king").style.visibility ='hidden';
-
+document.getElementById('tony-red').style.visibility ='hidden';
+document.getElementById('eric-red').style.visibility ='hidden';
+document.getElementById('dad-red').style.visibility ='hidden';
+document.getElementById('mom-red').style.visibility ='hidden';
 
 // tony's event listener
 ti.addEventListener("keyup", function (event) {
@@ -119,6 +135,10 @@ document.getElementById("mom-king").style.visibility = 'hidden';
 document.getElementById("dad-king").style.visibility ='hidden';
 
     // to add colour to the names
+    document.getElementById('tony-red').style.visibility ='hidden';
+    document.getElementById('eric-red').style.visibility ='hidden';
+    document.getElementById('dad-red').style.visibility ='hidden';
+    document.getElementById('mom-red').style.visibility ='hidden';
     document.getElementById("mom-name").style.color = "black";
     document.getElementById("dad-name").style.color = "black";
     document.getElementById("eric-name").style.color = "black";
@@ -141,6 +161,20 @@ document.getElementById("dad-king").style.visibility ='hidden';
         round_counter = 1;
       }
       document.getElementById("turns-left").innerHTML = --turns_left;
+    }
+
+    // shows whos the leader of the game
+    if (position.tony === round_counter) {
+      document.getElementById('tony-red').style.visibility ='visible';
+    }
+    else if (position.mom === round_counter) {
+      document.getElementById('mom-red').style.visibility ='visible';
+    }
+    else if (position.eric === round_counter) {
+      document.getElementById('eric-red').style.visibility ='visible';
+    }
+    else if (position.dad === round_counter) {
+      document.getElementById('dad-red').style.visibility ='visible';
     }
 
     // figures out the round number
@@ -182,6 +216,10 @@ ei.addEventListener("keyup", function (event) {
       }
     }
         // changes the visibility
+        document.getElementById('tony-red').style.visibility ='hidden';
+        document.getElementById('eric-red').style.visibility ='hidden';
+        document.getElementById('dad-red').style.visibility ='hidden';
+        document.getElementById('mom-red').style.visibility ='hidden';
         document.getElementById("eric-king").style.visibility ='hidden';
         document.getElementById("tony-king").style.visibility ='hidden';
         document.getElementById("mom-king").style.visibility = 'hidden';
@@ -209,6 +247,20 @@ ei.addEventListener("keyup", function (event) {
         round_counter = 1;
       }
       document.getElementById("turns-left").innerHTML = --turns_left;
+    }
+
+    // shows whos the leader of the game
+    if (position.tony === round_counter) {
+      document.getElementById('tony-red').style.visibility ='visible';
+    }
+    else if (position.mom === round_counter) {
+      document.getElementById('mom-red').style.visibility ='visible';
+    }
+    else if (position.eric === round_counter) {
+      document.getElementById('eric-red').style.visibility ='visible';
+    }
+    else if (position.dad === round_counter) {
+      document.getElementById('dad-red').style.visibility ='visible';
     }
 
     // figures out the round number
@@ -251,6 +303,10 @@ mi.addEventListener("keyup", function (event) {
       }
     }
         // changes the visibility
+        document.getElementById('tony-red').style.visibility ='hidden';
+        document.getElementById('eric-red').style.visibility ='hidden';
+        document.getElementById('dad-red').style.visibility ='hidden';
+        document.getElementById('mom-red').style.visibility ='hidden';
         document.getElementById("mom-king").style.visibility ='hidden';
         document.getElementById("tony-king").style.visibility ='hidden';
         document.getElementById("eric-king").style.visibility = 'hidden';
@@ -279,6 +335,20 @@ mi.addEventListener("keyup", function (event) {
         round_counter = 1;
       }
       document.getElementById("turns-left").innerHTML = --turns_left;
+    }
+
+    // shows whos the leader of the game
+    if (position.tony === round_counter) {
+      document.getElementById('tony-red').style.visibility ='visible';
+    }
+    else if (position.mom === round_counter) {
+      document.getElementById('mom-red').style.visibility ='visible';
+    }
+    else if (position.eric === round_counter) {
+      document.getElementById('eric-red').style.visibility ='visible';
+    }
+    else if (position.dad === round_counter) {
+      document.getElementById('dad-red').style.visibility ='visible';
     }
 
     // figures out how many rounds are left
@@ -323,6 +393,10 @@ di.addEventListener("keyup", function (event) {
     }
 
             // changes the visibility
+            document.getElementById('tony-red').style.visibility ='hidden';
+            document.getElementById('eric-red').style.visibility ='hidden';
+            document.getElementById('dad-red').style.visibility ='hidden';
+            document.getElementById('mom-red').style.visibility ='hidden';
             document.getElementById("dad-king").style.visibility ='hidden';
             document.getElementById("tony-king").style.visibility ='hidden';
             document.getElementById("mom-king").style.visibility = 'hidden';
@@ -350,6 +424,20 @@ di.addEventListener("keyup", function (event) {
         round_counter = 1;
       }
       document.getElementById("turns-left").innerHTML = --turns_left;
+    }
+ 
+    // shows whos the leader of the game
+    if (position.tony === round_counter) {
+      document.getElementById('tony-red').style.visibility ='visible';
+    }
+    else if (position.mom === round_counter) {
+      document.getElementById('mom-red').style.visibility ='visible';
+    }
+    else if (position.eric === round_counter) {
+      document.getElementById('eric-red').style.visibility ='visible';
+    }
+    else if (position.dad === round_counter) {
+      document.getElementById('dad-red').style.visibility ='visible';
     }
 
     // figures out how many rounds are left
