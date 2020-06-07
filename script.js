@@ -1,3 +1,81 @@
+/*
+// sets highscore for money
+      if (money.tony > high_score_money.tony) {
+        high_score_money.tony = money.tony;
+        document.getElementById("tony-highscore").innerHTML =
+          high_score_money.tony;
+      }
+      if (money.eric > high_score_money.eric) {
+        high_score_money.eric = money.eric;
+        document.getElementById("eric-highscore").innerHTML =
+          high_score_money.eric;
+      }
+      if (money.mom > high_score_money.mom) {
+        high_score_money.mom = money.mom;
+        document.getElementById("mom-highscore").innerHTML = high_score_money.mom;
+      }
+      if (money.dad > high_score_money.dad) {
+        high_score_money.dad = money.dad;
+        document.getElementById("dad-highscore").innerHTML = high_score_money.dad;
+      }
+      // sets lowest score for money
+      if (money.tony < low_score_money.tony) {
+        low_score_money.tony = money.tony;
+        document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
+      }
+    if (money.eric < low_score_money.eric) {
+      low_score_money.eric = money.eric;
+      document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
+    }
+    if (money.mom < low_score_money.mom) {
+      low_score_money.mom = money.mom;
+      document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
+    }
+  if (money.dad < low_score_money.dad) {
+    low_score_money.dad = money.dad;
+    document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
+  }
+*/
+
+let high_and_low_score = (high_score_money, money) => {
+  // sets highscore for money
+if (money.tony > high_score_money.tony) {
+  high_score_money.tony = money.tony;
+  document.getElementById("tony-highscore").innerHTML =
+    high_score_money.tony;
+}
+if (money.eric > high_score_money.eric) {
+  high_score_money.eric = money.eric;
+  document.getElementById("eric-highscore").innerHTML =
+    high_score_money.eric;
+}
+if (money.mom > high_score_money.mom) {
+  high_score_money.mom = money.mom;
+  document.getElementById("mom-highscore").innerHTML = high_score_money.mom;
+}
+if (money.dad > high_score_money.dad) {
+  high_score_money.dad = money.dad;
+  document.getElementById("dad-highscore").innerHTML = high_score_money.dad;
+}
+// sets lowest score for money
+if (money.tony < low_score_money.tony) {
+  low_score_money.tony = money.tony;
+  document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
+}
+if (money.eric < low_score_money.eric) {
+low_score_money.eric = money.eric;
+document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
+}
+if (money.mom < low_score_money.mom) {
+low_score_money.mom = money.mom;
+document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
+}
+if (money.dad < low_score_money.dad) {
+low_score_money.dad = money.dad;
+document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
+}
+}
+
 // stores the money
 let money = {
   tony: 100,
@@ -144,17 +222,10 @@ ti.addEventListener("keyup", function (event) {
         document.getElementById("display-wins-tony").innerHTML = wins.tony;
       }
     }
-    // sets highscore for money
-    if (money.tony > high_score_money.tony) {
-      high_score_money.tony = money.tony;
-      document.getElementById("tony-highscore").innerHTML =
-        high_score_money.tony;
-    }
-    // sets lowest score for money
-    if (money.tony < low_score_money.tony) {
-      low_score_money.tony = money.tony;
-      document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
-    }
+    // sets highest score and lowest score for money
+high_and_low_score(high_score_money,money);
+
+  
 
     // changes the visibility
     set_visibility();
@@ -232,17 +303,8 @@ ei.addEventListener("keyup", function (event) {
         document.getElementById("display-wins-eric").innerHTML = wins.eric;
       }
     }
-    // sets highscore for money
-    if (money.eric > high_score_money.eric) {
-      high_score_money.eric = money.eric;
-      document.getElementById("eric-highscore").innerHTML =
-        high_score_money.eric;
-    }
-    // sets lowest score for money
-    if (money.eric < low_score_money.eric) {
-      low_score_money.eric = money.eric;
-      document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
-    }
+   // sets highest score and lowest score for money
+high_and_low_score(high_score_money,money);
 
     // changes the visibility
     set_visibility();
@@ -321,16 +383,8 @@ mi.addEventListener("keyup", function (event) {
         document.getElementById("display-wins-mom").innerHTML = wins.mom;
       }
     }
-    // sets highscore for money
-    if (money.mom > high_score_money.mom) {
-      high_score_money.mom = money.mom;
-      document.getElementById("mom-highscore").innerHTML = high_score_money.mom;
-    }
-    // sets lowest score for money
-    if (money.mom < low_score_money.mom) {
-      low_score_money.mom = money.mom;
-      document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
-    }
+    // sets highest score and lowest score for money
+high_and_low_score(high_score_money,money);
 
     // changes the visibility
     set_visibility();
@@ -412,16 +466,8 @@ di.addEventListener("keyup", function (event) {
       }
     }
 
-    // sets highscore for money
-    if (money.dad > high_score_money.dad) {
-      high_score_money.dad = money.dad;
-      document.getElementById("dad-highscore").innerHTML = high_score_money.dad;
-    }
-    // sets lowest score for money
-    if (money.dad < low_score_money.dad) {
-      low_score_money.dad = money.dad;
-      document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
-    }
+    // sets highest score and lowest score for money
+high_and_low_score(high_score_money,money);
 
     // changes the visibility
     set_visibility();
