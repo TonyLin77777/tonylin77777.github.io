@@ -96,14 +96,7 @@ dad_position.addEventListener("keyup", function (event) {
 setMoney();
 
 // sets visibility to hidden
-document.getElementById("tony-king").style.visibility ='hidden';
-document.getElementById("eric-king").style.visibility ='hidden';
-document.getElementById("mom-king").style.visibility = 'hidden';
-document.getElementById("dad-king").style.visibility ='hidden';
-document.getElementById('tony-red').style.visibility ='hidden';
-document.getElementById('eric-red').style.visibility ='hidden';
-document.getElementById('dad-red').style.visibility ='hidden';
-document.getElementById('mom-red').style.visibility ='hidden';
+set_visibility();
 
 // tony's event listener
 ti.addEventListener("keyup", function (event) {
@@ -129,16 +122,9 @@ ti.addEventListener("keyup", function (event) {
     }
 
     // changes the visibility
-    document.getElementById("tony-king").style.visibility ='hidden';
-document.getElementById("eric-king").style.visibility ='hidden';
-document.getElementById("mom-king").style.visibility = 'hidden';
-document.getElementById("dad-king").style.visibility ='hidden';
+    set_visibility();
 
     // to add colour to the names
-    document.getElementById('tony-red').style.visibility ='hidden';
-    document.getElementById('eric-red').style.visibility ='hidden';
-    document.getElementById('dad-red').style.visibility ='hidden';
-    document.getElementById('mom-red').style.visibility ='hidden';
     document.getElementById("mom-name").style.color = "black";
     document.getElementById("dad-name").style.color = "black";
     document.getElementById("eric-name").style.color = "black";
@@ -216,14 +202,7 @@ ei.addEventListener("keyup", function (event) {
       }
     }
         // changes the visibility
-        document.getElementById('tony-red').style.visibility ='hidden';
-        document.getElementById('eric-red').style.visibility ='hidden';
-        document.getElementById('dad-red').style.visibility ='hidden';
-        document.getElementById('mom-red').style.visibility ='hidden';
-        document.getElementById("eric-king").style.visibility ='hidden';
-        document.getElementById("tony-king").style.visibility ='hidden';
-        document.getElementById("mom-king").style.visibility = 'hidden';
-        document.getElementById("dad-king").style.visibility ='hidden';
+        set_visibility();
 
     // to add colour to the names
     document.getElementById("tony-name").style.color = "black";
@@ -303,14 +282,7 @@ mi.addEventListener("keyup", function (event) {
       }
     }
         // changes the visibility
-        document.getElementById('tony-red').style.visibility ='hidden';
-        document.getElementById('eric-red').style.visibility ='hidden';
-        document.getElementById('dad-red').style.visibility ='hidden';
-        document.getElementById('mom-red').style.visibility ='hidden';
-        document.getElementById("mom-king").style.visibility ='hidden';
-        document.getElementById("tony-king").style.visibility ='hidden';
-        document.getElementById("eric-king").style.visibility = 'hidden';
-        document.getElementById("dad-king").style.visibility ='hidden';
+        set_visibility();
 
     // to add colour to the names
     document.getElementById("dad-name").style.color = "black";
@@ -393,15 +365,8 @@ di.addEventListener("keyup", function (event) {
     }
 
             // changes the visibility
-            document.getElementById('tony-red').style.visibility ='hidden';
-            document.getElementById('eric-red').style.visibility ='hidden';
-            document.getElementById('dad-red').style.visibility ='hidden';
-            document.getElementById('mom-red').style.visibility ='hidden';
-            document.getElementById("dad-king").style.visibility ='hidden';
-            document.getElementById("tony-king").style.visibility ='hidden';
-            document.getElementById("mom-king").style.visibility = 'hidden';
-            document.getElementById("eric-king").style.visibility ='hidden';
-
+            set_visibility();
+            
     // to add colour to the names
     document.getElementById("dad-name").style.color = "white";
     document.getElementById("tony-name").style.color = "black";
