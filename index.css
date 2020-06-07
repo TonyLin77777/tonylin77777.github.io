@@ -35,8 +35,8 @@ h3 {
 }
 
 .king {
-position: absolute;
-left: 500px;
+  position: absolute;
+  left: 500px;
 }
 #title {
   text-align: left;
@@ -75,4 +75,24 @@ left: 500px;
   top: 160px;
   left: 480px;
 }
+#high-score {
+  position: absolute;
+  left: 50px;
+  top: 600px;
+}
+table {
+  border: 1px solid #ff3300;
+  padding: 3px;
+  color: white;
+  background-color: black;
+}
+td {
+  padding: 3px;
+  border: 1px solid #ff3300;
+}
 
+#lowest-score {
+  position: absolute;
+  top: 600px;
+  left: 250px;
+}
