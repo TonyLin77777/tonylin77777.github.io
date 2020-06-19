@@ -88,6 +88,7 @@ table {
   padding: 3px;
   color: white;
   background-color: black;
+  margin-top: 20px;
 }
 td {
   padding: 3px;
@@ -133,7 +134,7 @@ td {
 #reset-button {
 position: absolute;
 top: 540px;
-left: 280px;
+left: 330px;
 border-radius: 5px;
 color: white;
 background-color: black;
