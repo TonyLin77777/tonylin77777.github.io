@@ -53,7 +53,7 @@ h3 {
 #round-number {
   display: inline-block;
   position: relative;
-  left: 600px;
+  left: 680px;
   bottom: 280px;
   font-size: 3rem;
 }
@@ -61,7 +61,7 @@ h3 {
 .turns-left-sentence {
   display: inline-block;
   position: relative;
-  left: 600px;
+  left: 680px;
   bottom: 300px;
   font-size: 3rem;
 }
@@ -152,7 +152,7 @@ width: 100px;
   width: 130px;
 }
 .red-circle, .king, .display-wins-area, .prize-won, .display-money, .enter-money-area, .position-rankings, #title-wins {
-  margin-left: 100px;
+  margin-left: 150px;
 }
 
 #title-for-column{
