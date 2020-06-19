@@ -11,7 +11,8 @@
   <body>
     <h1 id="title">Mahjong Counter</h1>
     <div class="person-div">
-      <h2 id="tony-name" class="display-name">Tony</h2>
+      <input type="text" id="name-one" class="enter-name" />
+      <h2 id="tony-name" class="display-name" ></h2>
       <h2 id="tm" class="display-money">0</h2>
       <h2 class="prize-won" id="tony-prize"> 0 </h2>
       <h2 id="display-wins-tony" class="display-wins-area">0</h2>
@@ -27,7 +28,8 @@
     <br />
     <br />
     <div class="person-div">
-      <h2 id="eric-name" class="display-name">Eric</h2>
+      <input type="text" id="name-two" class="enter-name" />
+      <h2 id="eric-name" class="display-name"></h2>
       <h2 id="em" class="display-money">0</h2>
       <h2 class="prize-won" id="eric-prize"> 0 </h2>
       <h2 id="display-wins-eric" class="display-wins-area">0</h2>
@@ -43,7 +45,8 @@
     <br />
     <br />
     <div class="person-div">
-      <h2 id="mom-name" class="display-name">Mom</h2>
+      <input type="text" id="name-three" class="enter-name" />
+      <h2 id="mom-name" class="display-name"></h2>
       <h2 id="mm" class="display-money">0</h2>
       <h2 class="prize-won" id="mom-prize"> 0 </h2>
       <h2 id="display-wins-mom" class="display-wins-area">0</h2>
@@ -59,7 +62,8 @@
     <br />
     <br />
     <div id="tony-div" class="person-div">
-      <h2 id="dad-name" class="display-name">Dad</h2>
+      <input type="text" id="name-four" class="enter-name" />
+      <h2 id="dad-name" class="display-name"></h2>
       <h2 id="dm" class="display-money">0</h2>
       <h2 class="prize-won" id="dad-prize"> 0 </h2>
       <h2 id="display-wins-dad" class="display-wins-area">0</h2>
@@ -72,6 +76,7 @@
       <br /><br />
     </div>
   
+    <button id="reset-button"> Reset Last Move </button>
     <table id="high-score">
       <tr> 
         <th colspan="4">
@@ -79,17 +84,17 @@
         </th>
       </tr>
       <tr>
-        <td>
-          Tony
+        <td class="table-name-firstperson">
+          p 1
         </td>
-        <td>
-          Eric
+        <td class="table-name-secondperson">
+          p 2
         </td>
-        <td>
-          Mom
+        <td class="table-name-thirdperson">
+          p 3
         </td>
-        <td>
-          Dad
+        <td class="table-name-fourthperson">
+          p 4
         </td>
       </tr>
       <tr>
@@ -115,17 +120,17 @@
         </th>
       </tr>
       <tr>
-        <td>
-          Tony
+        <td class="table-name-firstperson">
+          p 1
         </td>
-        <td>
-          Eric
+        <td class="table-name-secondperson">
+          p 2
         </td>
-        <td>
-          Mom
+        <td class="table-name-thirdperson">
+          p 3
         </td>
-        <td>
-          Dad
+        <td class="table-name-fourthperson">
+          p 4
         </td>
       </tr>
       <tr>
@@ -152,17 +157,17 @@
       </th>
     </tr>
     <tr>
-      <td>
-        Tony
+      <td class="table-name-firstperson">
+        p 1
       </td>
-      <td>
-        Eric
+      <td class="table-name-secondperson">
+        p 2
       </td>
-      <td>
-        Mom
+      <td class="table-name-thirdperson">
+        p 3
       </td>
-      <td>
-        Dad
+      <td class="table-name-fourthperson">
+        p 4
       </td>
     </tr>
     <tr>
@@ -188,18 +193,18 @@
       </th>
     </tr>
     <tr>
-      <td>
-        Tony
+      <td class="table-name-firstperson">
+        p 1
       </td>
-      <td>
-        Eric
+      <td class="table-name-secondperson">
+        p 2
       </td>
-      <td>
-        Mom
+      <td class="table-name-thirdperson">
+        p  3
       </td>
-      <td>
-        Dad
-      </td>
+      <td class="table-name-fourthperson">
+        p 4
+            </td>
     </tr>
     <tr>
       <td id="tony-highest-money-received">
@@ -222,7 +227,7 @@
     </h1>
 <br/>
     <h1 class="turns-left-sentence"> Turns Left: &nbsp; <h1 id="turns-left" class="turns-left-sentence"> 16 </h1></h1>
-
+<h4 id="title-for-column"> Enter Name &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; Enter Winnings | Positions</h4>
     <div id="history">
       <p>History</p>
     </div>
