@@ -144,6 +144,10 @@ outline: none;
 cursor: pointer;
 width: 100px;
 }
+#reset-button:active {
+  background-color: white;
+  color: black;
+}
 .display-name {
   
 }
