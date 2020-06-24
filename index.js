@@ -186,7 +186,7 @@ let repeated_wins_counter_visibility_numbers = () => {
   document.getElementById("eric-king").style.visibility = "hidden";
   document.getElementById("mom-king").style.visibility = "hidden";
   document.getElementById("dad-king").style.visibility = "hidden";
-}
+};
 
 // figures out how many rounds are left
 let turn_counter = () => {
@@ -210,8 +210,7 @@ let turn_counter = () => {
 };
 
 let reset_to_last_round = () => {
-  
-  if (win_order[array_length-2] === 'e') {
+  if (win_order[array_length - 2] === "e") {
     if (previous_in_a_row_wins[how_many_rounds_passed - 2] > 0) {
       repeated_counter_eric = false;
       repeated_counter_tony = true;
@@ -220,18 +219,14 @@ let reset_to_last_round = () => {
       repeated_wins_counter_visibility();
       repeated_wins_counter_visibility_numbers();
 
-
       counter2 = previous_in_a_row_wins[how_many_rounds_passed - 2];
-   
+
       document.getElementById("eric-king").innerHTML = counter2;
       document.getElementById("eric-king").style.visibility = "visible";
-    
-
-      
     }
 
     document.getElementById("eric-red").style.visibility = "visible";
-  } else if (win_order[array_length-2] === 't') {
+  } else if (win_order[array_length - 2] === "t") {
     if (previous_in_a_row_wins[how_many_rounds_passed - 2] > 0) {
       repeated_counter_tony = false;
       repeated_counter_eric = true;
@@ -239,17 +234,14 @@ let reset_to_last_round = () => {
       repeated_counter_dad = true;
       repeated_wins_counter_visibility();
       repeated_wins_counter_visibility_numbers();
-  
 
       counter = previous_in_a_row_wins[how_many_rounds_passed - 2];
- 
+
       document.getElementById("tony-king").innerHTML = counter;
       document.getElementById("tony-king").style.visibility = "visible";
-
     }
     document.getElementById("tony-red").style.visibility = "visible";
-  } else if (win_order[array_length-2] === 'm') {
-    
+  } else if (win_order[array_length - 2] === "m") {
     if (previous_in_a_row_wins[how_many_rounds_passed - 2] > 0) {
       repeated_counter_mom = false;
       repeated_counter_eric = true;
@@ -258,18 +250,13 @@ let reset_to_last_round = () => {
       repeated_wins_counter_visibility();
       repeated_wins_counter_visibility_numbers();
 
-
       counter3 = previous_in_a_row_wins[how_many_rounds_passed - 2];
-      
 
       document.getElementById("mom-king").innerHTML = counter3;
       document.getElementById("mom-king").style.visibility = "visible";
-     
- 
     }
     document.getElementById("mom-red").style.visibility = "visible";
-  } else if (win_order[array_length-2] === 'd') {
-
+  } else if (win_order[array_length - 2] === "d") {
     if (previous_in_a_row_wins[how_many_rounds_passed - 2] > 0) {
       repeated_counter_dad = false;
       repeated_counter_eric = true;
@@ -278,12 +265,10 @@ let reset_to_last_round = () => {
       repeated_wins_counter_visibility();
       repeated_wins_counter_visibility_numbers();
 
-
       counter4 = previous_in_a_row_wins[how_many_rounds_passed - 2];
-  
+
       document.getElementById("dad-king").innerHTML = counter4;
       document.getElementById("dad-king").style.visibility = "visible";
- 
     }
     document.getElementById("dad-red").style.visibility = "visible";
   }
@@ -293,7 +278,7 @@ let reset_to_last_round = () => {
   eric_boolean = false;
   mom_boolean = false;
   dad_boolean = false;
-  if (turns_left === 16) {
+  if (array_length === 1 ) {
     repeated_counter_dad = true;
     repeated_counter_eric = true;
     repeated_counter_mom = true;
@@ -341,457 +326,457 @@ let array_length;
 
 let reset_button = document.getElementById("reset-button");
 reset_button.addEventListener("click", function (event) {
-   array_length = win_order.length;
+  array_length = win_order.length;
+  if (array_length > 0) {
+    if (win_order[array_length - 1] === "t") {
+      // resets money won
+      money.tony -= win_prize[array_length];
+      money.eric += win_prize[array_length] / 3;
+      money.dad += win_prize[array_length] / 3;
+      money.mom += win_prize[array_length] / 3;
 
-  if (win_order[array_length - 1] === "t") {
-    // resets money won
-    money.tony -= win_prize[array_length];
-    money.eric += win_prize[array_length] / 3;
-    money.dad += win_prize[array_length] / 3;
-    money.mom += win_prize[array_length] / 3;
-
-    // redos highest win
-    if (
-      previous_highest_win.tony != highest_money_won.tony &&
-      repeated_win_counter.tony != 1
-    ) {
-      document.getElementById("tony-highest-money-received").innerHTML =
-        highest_money_won.tony - difference_from_previous_highest_win.tony;
-    } else {
-      document.getElementById("tony-highest-money-received").innerHTML =
-        previous_highest_win.tony;
-    }
-
-    // minus wins
-    wins.tony -= 1;
-    document.getElementById("display-wins-tony").innerHTML = wins.tony;
-
-    // undos money received chart
-    if (win_prize[array_length] > 0) {
-      money_won.tony -= win_prize[array_length];
-      document.getElementById("tony-moneymade").innerHTML = money_won.tony;
-    } else {
-      money_won.eric += win_prize[array_length] / 3;
-      money_won.mom += win_prize[array_length] / 3;
-      money_won.dad += win_prize[array_length] / 3;
-      document.getElementById("eric-moneymade").innerHTML = money_won.eric;
-      document.getElementById("mom-moneymade").innerHTML = money_won.mom;
-      document.getElementById("dad-moneymade").innerHTML = money_won.dad;
-    }
-
-    // removes highscore
-    if (high_score_money_array[array_length - 1] > 0) {
-      high_score_money.tony = money.tony;
-      high_score_money.eric = money.eric;
-      high_score_money.mom = money.mom;
-      high_score_money.dad = money.dad;
-      document.getElementById("tony-highscore").innerHTML =
-        high_score_money.tony;
-      document.getElementById("eric-highscore").innerHTML =
-        high_score_money.eric;
-      document.getElementById("mom-highscore").innerHTML = high_score_money.mom;
-      document.getElementById("dad-highscore").innerHTML = high_score_money.dad;
-    }
-
-    // removes lowest score
-    if (low_score_money_array[array_length - 1] < 100) {
-      low_score_money.mom = money.mom;
-      low_score_money.eric = money.eric;
-      low_score_money.dad = money.dad;
-      document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
-      document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
-      document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
-    }
-
-    // resets prize won
-    if (win_prize[array_length - 1] === 0 && turns_left === 16) {
-      document.getElementById("tony-prize").innerHTML = 0;
-      document.getElementById("eric-prize").innerHTML = 0;
-      document.getElementById("mom-prize").innerHTML = 0;
-      document.getElementById("dad-prize").innerHTML = 0;
-    } else {
-      document.getElementById("tony-prize").innerHTML =
-        "+" + previous_highest_win.tony;
-      document.getElementById("eric-prize").innerHTML =
-        "-" + previous_highest_win.tony / 3;
-      document.getElementById("mom-prize").innerHTML =
-        "-" + previous_highest_win.tony / 3;
-      document.getElementById("dad-prize").innerHTML =
-        "-" + previous_highest_win.tony / 3;
-    }
-    // figures out how many turns are left and makes the red circle work
-
-  //   position_tracker_with_rounds();
-
- // turn_counter();
-    if (counter >= 2) {
-      counter--;
-
-      document.getElementById("tony-king").innerHTML = counter;
-      document.getElementById("tony-king").style.visiblity = "visible";
-      document.getElementById("tony-red").style.visiblity = "visible";
-
-    }
-    else if (counter === 1) {
-      counter--;
-      document.getElementById("tony-king").style.visibility = "hidden";
-      document.getElementById("tony-red").style.visiblity = "visible";
-    }
-     else {
-      if (turns_left != 16) {
-        turns_left++;
-        document.getElementById('turns-left').innerHTML = turns_left;
-        document.getElementById('turns-left').style.visibility = 'visible';
-      }
-      document.getElementById("tony-king").style.visibility = "hidden";
-      document.getElementById("tony-red").style.visiblity = "hidden";
-
-      if (round_counter === 1) {
-        round_counter = 4;
+      // redos highest win
+      if (
+        previous_highest_win.tony != highest_money_won.tony &&
+        repeated_win_counter.tony != 1
+      ) {
+        document.getElementById("tony-highest-money-received").innerHTML =
+          highest_money_won.tony - difference_from_previous_highest_win.tony;
       } else {
-        round_counter--;
+        document.getElementById("tony-highest-money-received").innerHTML =
+          previous_highest_win.tony;
       }
-      turn_counter();
-      reset_to_last_round();
-    }
 
-  } else if (win_order[array_length - 1] === "e") {
-    // resets money won
-    money.eric -= win_prize[array_length];
-    money.tony += win_prize[array_length] / 3;
-    money.dad += win_prize[array_length] / 3;
-    money.mom += win_prize[array_length] / 3;
+      // minus wins
+      wins.tony -= 1;
+      document.getElementById("display-wins-tony").innerHTML = wins.tony;
 
-    // redos highest win
-    if (
-      previous_highest_win.eric != highest_money_won.eric &&
-      repeated_win_counter.eric != 1
-    ) {
-      document.getElementById("eric-highest-money-received").innerHTML =
-        highest_money_won.eric - difference_from_previous_highest_win.eric;
-    } else {
-      document.getElementById("eric-highest-money-received").innerHTML =
-        previous_highest_win.eric;
-    }
-
-    // minus wins
-    wins.eric -= 1;
-    document.getElementById("display-wins-eric").innerHTML = wins.eric;
-
-    // undos money received chart
-    if (win_prize[array_length] > 0) {
-      money_won.eric -= win_prize[array_length];
-      document.getElementById("eric-moneymade").innerHTML = money_won.eric;
-    } else {
-      money_won.tony += win_prize[array_length] / 3;
-      money_won.mom += win_prize[array_length] / 3;
-      money_won.dad += win_prize[array_length] / 3;
-      document.getElementById("tony-moneymade").innerHTML = money_won.eric;
-      document.getElementById("mom-moneymade").innerHTML = money_won.mom;
-      document.getElementById("dad-moneymade").innerHTML = money_won.dad;
-    }
-
-    // removes highscore
-    if (high_score_money_array[array_length - 1] > 0) {
-      high_score_money.tony = money.tony;
-      high_score_money.eric = money.eric;
-      high_score_money.mom = money.mom;
-      high_score_money.dad = money.dad;
-      document.getElementById("tony-highscore").innerHTML =
-        high_score_money.tony;
-      document.getElementById("eric-highscore").innerHTML =
-        high_score_money.eric;
-      document.getElementById("mom-highscore").innerHTML = high_score_money.mom;
-      document.getElementById("dad-highscore").innerHTML = high_score_money.dad;
-    }
-
-    // removes lowest score
-    if (low_score_money_array[array_length - 1] < 100) {
-      low_score_money.tony = money.tony;
-      low_score_money.mom = money.mom;
-      low_score_money.dad = money.dad;
-      document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
-      document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
-      document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
-    }
-
-    // resets prize won
-    if (win_prize[array_length - 1] === 0 && turns_left === 16) {
-      document.getElementById("tony-prize").innerHTML = 0;
-      document.getElementById("eric-prize").innerHTML = 0;
-      document.getElementById("mom-prize").innerHTML = 0;
-      document.getElementById("dad-prize").innerHTML = 0;
-    } else {
-      document.getElementById("eric-prize").innerHTML =
-        "+" + previous_highest_win.eric;
-      document.getElementById("tony-prize").innerHTML =
-        "-" + previous_highest_win.eric / 3;
-      document.getElementById("mom-prize").innerHTML =
-        "-" + previous_highest_win.eric / 3;
-      document.getElementById("dad-prize").innerHTML =
-        "-" + previous_highest_win.eric / 3;
-    }
-    // figures out how many turns are left and makes the red circle work
-   
-//   position_tracker_with_rounds();
-
- // turn_counter();
-    if (counter2 >= 2) {
-      counter2--;
-
-      document.getElementById("eric-king").innerHTML = counter2;
-      document.getElementById("eric-king").style.visiblity = "visible";
-      document.getElementById("eric-red").style.visiblity = "visible";
-
-    }
-    else if (counter2 === 1) {
-      counter2--;
-      document.getElementById("eric-king").style.visibility = "hidden";
-      document.getElementById("eric-red").style.visiblity = "visible";
-    }
-    else {
-      if (turns_left != 16) {
-        turns_left++;
-        document.getElementById('turns-left').innerHTML = turns_left;
-        document.getElementById('turns-left').style.visibility = 'visible';
-      }
-      document.getElementById("eric-king").style.visibility = "hidden";
-      document.getElementById("eric-red").style.visiblity = "hidden";
-
-      if (round_counter === 1) {
-        round_counter = 4;
+      // undos money received chart
+      if (win_prize[array_length] > 0) {
+        money_won.tony -= win_prize[array_length];
+        document.getElementById("tony-moneymade").innerHTML = money_won.tony;
       } else {
-        round_counter--;
+        money_won.eric += win_prize[array_length] / 3;
+        money_won.mom += win_prize[array_length] / 3;
+        money_won.dad += win_prize[array_length] / 3;
+        document.getElementById("eric-moneymade").innerHTML = money_won.eric;
+        document.getElementById("mom-moneymade").innerHTML = money_won.mom;
+        document.getElementById("dad-moneymade").innerHTML = money_won.dad;
       }
-      turn_counter();
-      reset_to_last_round();
+
+      // removes highscore
+      if (high_score_money_array[array_length - 1] > 0) {
+        high_score_money.tony = money.tony;
+        high_score_money.eric = money.eric;
+        high_score_money.mom = money.mom;
+        high_score_money.dad = money.dad;
+        document.getElementById("tony-highscore").innerHTML =
+          high_score_money.tony;
+        document.getElementById("eric-highscore").innerHTML =
+          high_score_money.eric;
+        document.getElementById("mom-highscore").innerHTML =
+          high_score_money.mom;
+        document.getElementById("dad-highscore").innerHTML =
+          high_score_money.dad;
+      }
+
+      // removes lowest score
+      if (low_score_money_array[array_length - 1] < 100) {
+        low_score_money.mom = money.mom;
+        low_score_money.eric = money.eric;
+        low_score_money.dad = money.dad;
+        document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
+        document.getElementById("eric-lowscore").innerHTML =
+          low_score_money.eric;
+        document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
+      }
+
+      // resets prize won
+      if (win_prize[array_length - 1] === 0 && turns_left === 16) {
+        document.getElementById("tony-prize").innerHTML = 0;
+        document.getElementById("eric-prize").innerHTML = 0;
+        document.getElementById("mom-prize").innerHTML = 0;
+        document.getElementById("dad-prize").innerHTML = 0;
+      } else {
+        document.getElementById("tony-prize").innerHTML =
+          "+" + previous_highest_win.tony;
+        document.getElementById("eric-prize").innerHTML =
+          "-" + previous_highest_win.tony / 3;
+        document.getElementById("mom-prize").innerHTML =
+          "-" + previous_highest_win.tony / 3;
+        document.getElementById("dad-prize").innerHTML =
+          "-" + previous_highest_win.tony / 3;
+      }
+      // figures out how many turns are left and makes the red circle work
+
+      //   position_tracker_with_rounds();
+
+      // turn_counter();
+      if (counter >= 2) {
+        counter--;
+
+        document.getElementById("tony-king").innerHTML = counter;
+        document.getElementById("tony-king").style.visiblity = "visible";
+        document.getElementById("tony-red").style.visiblity = "visible";
+      } else if (counter === 1) {
+        counter--;
+        document.getElementById("tony-king").style.visibility = "hidden";
+        document.getElementById("tony-red").style.visiblity = "visible";
+      } else {
+        if (turns_left != 16) {
+          turns_left++;
+          document.getElementById("turns-left").innerHTML = turns_left;
+          document.getElementById("turns-left").style.visibility = "visible";
+        }
+        document.getElementById("tony-king").style.visibility = "hidden";
+        document.getElementById("tony-red").style.visiblity = "hidden";
+
+        if (round_counter === 1) {
+          round_counter = 4;
+        } else {
+          round_counter--;
+        }
+        turn_counter();
+        reset_to_last_round();
+      }
+    } else if (win_order[array_length - 1] === "e") {
+      // resets money won
+      money.eric -= win_prize[array_length];
+      money.tony += win_prize[array_length] / 3;
+      money.dad += win_prize[array_length] / 3;
+      money.mom += win_prize[array_length] / 3;
+
+      // redos highest win
+      if (
+        previous_highest_win.eric != highest_money_won.eric &&
+        repeated_win_counter.eric != 1
+      ) {
+        document.getElementById("eric-highest-money-received").innerHTML =
+          highest_money_won.eric - difference_from_previous_highest_win.eric;
+      } else {
+        document.getElementById("eric-highest-money-received").innerHTML =
+          previous_highest_win.eric;
+      }
+
+      // minus wins
+      wins.eric -= 1;
+      document.getElementById("display-wins-eric").innerHTML = wins.eric;
+
+      // undos money received chart
+      if (win_prize[array_length] > 0) {
+        money_won.eric -= win_prize[array_length];
+        document.getElementById("eric-moneymade").innerHTML = money_won.eric;
+      } else {
+        money_won.tony += win_prize[array_length] / 3;
+        money_won.mom += win_prize[array_length] / 3;
+        money_won.dad += win_prize[array_length] / 3;
+        document.getElementById("tony-moneymade").innerHTML = money_won.eric;
+        document.getElementById("mom-moneymade").innerHTML = money_won.mom;
+        document.getElementById("dad-moneymade").innerHTML = money_won.dad;
+      }
+
+      // removes highscore
+      if (high_score_money_array[array_length - 1] > 0) {
+        high_score_money.tony = money.tony;
+        high_score_money.eric = money.eric;
+        high_score_money.mom = money.mom;
+        high_score_money.dad = money.dad;
+        document.getElementById("tony-highscore").innerHTML =
+          high_score_money.tony;
+        document.getElementById("eric-highscore").innerHTML =
+          high_score_money.eric;
+        document.getElementById("mom-highscore").innerHTML =
+          high_score_money.mom;
+        document.getElementById("dad-highscore").innerHTML =
+          high_score_money.dad;
+      }
+
+      // removes lowest score
+      if (low_score_money_array[array_length - 1] < 100) {
+        low_score_money.tony = money.tony;
+        low_score_money.mom = money.mom;
+        low_score_money.dad = money.dad;
+        document.getElementById("tony-lowscore").innerHTML =
+          low_score_money.tony;
+        document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
+        document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
+      }
+
+      // resets prize won
+      if (win_prize[array_length - 1] === 0 && turns_left === 16) {
+        document.getElementById("tony-prize").innerHTML = 0;
+        document.getElementById("eric-prize").innerHTML = 0;
+        document.getElementById("mom-prize").innerHTML = 0;
+        document.getElementById("dad-prize").innerHTML = 0;
+      } else {
+        document.getElementById("eric-prize").innerHTML =
+          "+" + previous_highest_win.eric;
+        document.getElementById("tony-prize").innerHTML =
+          "-" + previous_highest_win.eric / 3;
+        document.getElementById("mom-prize").innerHTML =
+          "-" + previous_highest_win.eric / 3;
+        document.getElementById("dad-prize").innerHTML =
+          "-" + previous_highest_win.eric / 3;
+      }
+      // figures out how many turns are left and makes the red circle work
+
+      //   position_tracker_with_rounds();
+
+      // turn_counter();
+      if (counter2 >= 2) {
+        counter2--;
+
+        document.getElementById("eric-king").innerHTML = counter2;
+        document.getElementById("eric-king").style.visiblity = "visible";
+        document.getElementById("eric-red").style.visiblity = "visible";
+      } else if (counter2 === 1) {
+        counter2--;
+        document.getElementById("eric-king").style.visibility = "hidden";
+        document.getElementById("eric-red").style.visiblity = "visible";
+      } else {
+        if (turns_left != 16) {
+          turns_left++;
+          document.getElementById("turns-left").innerHTML = turns_left;
+          document.getElementById("turns-left").style.visibility = "visible";
+        }
+        document.getElementById("eric-king").style.visibility = "hidden";
+        document.getElementById("eric-red").style.visiblity = "hidden";
+
+        if (round_counter === 1) {
+          round_counter = 4;
+        } else {
+          round_counter--;
+        }
+        turn_counter();
+        reset_to_last_round();
+      }
+    } else if (win_order[array_length - 1] === "m") {
+      // resets money won
+      money.mom -= win_prize[array_length];
+      money.eric += win_prize[array_length] / 3;
+      money.dad += win_prize[array_length] / 3;
+      money.tony += win_prize[array_length] / 3;
+
+      // redos highest win
+      if (
+        previous_highest_win.mom != highest_money_won.mom &&
+        repeated_win_counter.mom != 1
+      ) {
+        document.getElementById("mom-highest-money-received").innerHTML =
+          highest_money_won.mom - difference_from_previous_highest_win.mom;
+      } else {
+        document.getElementById("mom-highest-money-received").innerHTML =
+          previous_highest_win.mom;
+      }
+      // minus wins
+      wins.mom -= 1;
+      document.getElementById("display-wins-mom").innerHTML = wins.mom;
+
+      // undos money received chart
+      if (win_prize[array_length] > 0) {
+        money_won.mom -= win_prize[array_length];
+        document.getElementById("mom-moneymade").innerHTML = money_won.mom;
+      } else {
+        money_won.eric += win_prize[array_length] / 3;
+        money_won.tony += win_prize[array_length] / 3;
+        money_won.dad += win_prize[array_length] / 3;
+        document.getElementById("eric-moneymade").innerHTML = money_won.eric;
+        document.getElementById("tony-moneymade").innerHTML = money_won.tony;
+        document.getElementById("dad-moneymade").innerHTML = money_won.dad;
+      }
+
+      // removes highscore
+      if (high_score_money_array[array_length - 1] > 0) {
+        high_score_money.tony = money.tony;
+        high_score_money.eric = money.eric;
+        high_score_money.mom = money.mom;
+        high_score_money.dad = money.dad;
+        document.getElementById("tony-highscore").innerHTML =
+          high_score_money.tony;
+        document.getElementById("eric-highscore").innerHTML =
+          high_score_money.eric;
+        document.getElementById("mom-highscore").innerHTML =
+          high_score_money.mom;
+        document.getElementById("dad-highscore").innerHTML =
+          high_score_money.dad;
+      }
+      // removes lowest score
+      if (low_score_money_array[array_length - 1] < 100) {
+        low_score_money.tony = money.tony;
+        low_score_money.eric = money.eric;
+        low_score_money.dad = money.dad;
+        document.getElementById("tony-lowscore").innerHTML =
+          low_score_money.tony;
+        document.getElementById("eric-lowscore").innerHTML =
+          low_score_money.eric;
+        document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
+      }
+
+      // resets prize won
+      if (win_prize[array_length - 1] === 0 && turns_left === 16) {
+        document.getElementById("tony-prize").innerHTML = 0;
+        document.getElementById("eric-prize").innerHTML = 0;
+        document.getElementById("mom-prize").innerHTML = 0;
+        document.getElementById("dad-prize").innerHTML = 0;
+      } else {
+        document.getElementById("mom-prize").innerHTML =
+          "+" + previous_highest_win.mom;
+        document.getElementById("eric-prize").innerHTML =
+          "-" + previous_highest_win.mom / 3;
+        document.getElementById("tony-prize").innerHTML =
+          "-" + previous_highest_win.mom / 3;
+        document.getElementById("dad-prize").innerHTML =
+          "-" + previous_highest_win.mom / 3;
+      }
+
+      // figures out how many turns are left and makes the red circle work
+      //   position_tracker_with_rounds();
+
+      // turn_counter();
+      if (counter3 >= 2) {
+        counter3--;
+
+        document.getElementById("mom-king").innerHTML = counter3;
+        document.getElementById("mom-king").style.visiblity = "visible";
+        document.getElementById("mom-red").style.visiblity = "visible";
+      } else if (counter3 === 1) {
+        counter3--;
+        document.getElementById("mom-king").style.visibility = "hidden";
+        document.getElementById("mom-red").style.visiblity = "visible";
+      } else {
+        if (turns_left != 16) {
+          turns_left++;
+          document.getElementById("turns-left").innerHTML = turns_left;
+          document.getElementById("turns-left").style.visibility = "visible";
+        }
+        document.getElementById("mom-king").style.visibility = "hidden";
+        document.getElementById("mom-red").style.visiblity = "hidden";
+
+        if (round_counter === 1) {
+          round_counter = 4;
+        } else {
+          round_counter--;
+        }
+        turn_counter();
+        reset_to_last_round();
+      }
+    } else if (win_order[array_length - 1] === "d") {
+      // resets money won
+      money.dad -= win_prize[array_length];
+      money.eric += win_prize[array_length] / 3;
+      money.tony += win_prize[array_length] / 3;
+      money.mom += win_prize[array_length] / 3;
+
+      // redos highest win
+      if (
+        previous_highest_win.dad != highest_money_won.dad &&
+        repeated_win_counter.dad != 1
+      ) {
+        document.getElementById("dad-highest-money-received").innerHTML =
+          highest_money_won.dad - difference_from_previous_highest_win.dad;
+      } else {
+        document.getElementById("dad-highest-money-received").innerHTML =
+          previous_highest_win.dad;
+      }
+      // minus wins
+      wins.dad -= 1;
+      document.getElementById("display-wins-dad").innerHTML = wins.dad;
+
+      // undos money received chart
+      if (win_prize[array_length] > 0) {
+        money_won.dad -= win_prize[array_length];
+        document.getElementById("dad-moneymade").innerHTML = money_won.dad;
+      } else {
+        money_won.eric += win_prize[array_length] / 3;
+        money_won.mom += win_prize[array_length] / 3;
+        money_won.tony += win_prize[array_length] / 3;
+        document.getElementById("eric-moneymade").innerHTML = money_won.eric;
+        document.getElementById("mom-moneymade").innerHTML = money_won.mom;
+        document.getElementById("tony-moneymade").innerHTML = money_won.tony;
+      }
+
+      // removes highscore
+      if (high_score_money_array[array_length - 1] > 0) {
+        high_score_money.tony = money.tony;
+        high_score_money.eric = money.eric;
+        high_score_money.mom = money.mom;
+        high_score_money.dad = money.dad;
+        document.getElementById("tony-highscore").innerHTML =
+          high_score_money.tony;
+        document.getElementById("eric-highscore").innerHTML =
+          high_score_money.eric;
+        document.getElementById("mom-highscore").innerHTML =
+          high_score_money.mom;
+        document.getElementById("dad-highscore").innerHTML =
+          high_score_money.dad;
+      }
+
+      // removes lowest score
+      if (low_score_money_array[array_length - 1] < 100) {
+        low_score_money.tony = money.tony;
+        low_score_money.eric = money.eric;
+        low_score_money.mom = money.mom;
+        document.getElementById("tony-lowscore").innerHTML =
+          low_score_money.tony;
+        document.getElementById("eric-lowscore").innerHTML =
+          low_score_money.eric;
+        document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
+      }
+
+      // resets prize won
+      if (win_prize[array_length - 1] === 0 && turns_left === 16) {
+        document.getElementById("tony-prize").innerHTML = 0;
+        document.getElementById("eric-prize").innerHTML = 0;
+        document.getElementById("mom-prize").innerHTML = 0;
+        document.getElementById("dad-prize").innerHTML = 0;
+      } else {
+        document.getElementById("dad-prize").innerHTML =
+          "+" + previous_highest_win.dad;
+        document.getElementById("eric-prize").innerHTML =
+          "-" + previous_highest_win.dad / 3;
+        document.getElementById("mom-prize").innerHTML =
+          "-" + previous_highest_win.dad / 3;
+        document.getElementById("tony-prize").innerHTML =
+          "-" + previous_highest_win.dad / 3;
+      }
+
+      // figures out how many turns are left and makes the red circle work
+      //   position_tracker_with_rounds();
+
+      // turn_counter();
+      if (counter4 >= 2) {
+        counter4--;
+
+        document.getElementById("dad-king").innerHTML = counter4;
+        document.getElementById("dad-king").style.visiblity = "visible";
+        document.getElementById("dad-red").style.visiblity = "visible";
+      } else if (counter4 === 1) {
+        counter4--;
+        document.getElementById("dad-king").style.visibility = "hidden";
+        document.getElementById("dad-red").style.visiblity = "visible";
+      } else {
+        if (turns_left != 16) {
+          turns_left++;
+          document.getElementById("turns-left").innerHTML = turns_left;
+          document.getElementById("turns-left").style.visibility = "visible";
+        }
+        document.getElementById("dad-king").style.visibility = "hidden";
+        document.getElementById("dad-red").style.visiblity = "hidden";
+
+        if (round_counter === 1) {
+          round_counter = 4;
+        } else {
+          round_counter--;
+        }
+        turn_counter();
+        reset_to_last_round();
+      }
     }
 
-
-  } else if (win_order[array_length - 1] === "m") {
-    // resets money won
-    money.mom -= win_prize[array_length];
-    money.eric += win_prize[array_length] / 3;
-    money.dad += win_prize[array_length] / 3;
-    money.tony += win_prize[array_length] / 3;
-
-    // redos highest win
-    if (
-      previous_highest_win.mom != highest_money_won.mom &&
-      repeated_win_counter.mom != 1
-    ) {
-      document.getElementById("mom-highest-money-received").innerHTML =
-        highest_money_won.mom - difference_from_previous_highest_win.mom;
-    } else {
-      document.getElementById("mom-highest-money-received").innerHTML =
-        previous_highest_win.mom;
-    }
-    // minus wins
-    wins.mom -= 1;
-    document.getElementById("display-wins-mom").innerHTML = wins.mom;
-
-    // undos money received chart
-    if (win_prize[array_length] > 0) {
-      money_won.mom -= win_prize[array_length];
-      document.getElementById("mom-moneymade").innerHTML = money_won.mom;
-    } else {
-      money_won.eric += win_prize[array_length] / 3;
-      money_won.tony += win_prize[array_length] / 3;
-      money_won.dad += win_prize[array_length] / 3;
-      document.getElementById("eric-moneymade").innerHTML = money_won.eric;
-      document.getElementById("tony-moneymade").innerHTML = money_won.tony;
-      document.getElementById("dad-moneymade").innerHTML = money_won.dad;
-    }
-
-    // removes highscore
-    if (high_score_money_array[array_length - 1] > 0) {
-      high_score_money.tony = money.tony;
-      high_score_money.eric = money.eric;
-      high_score_money.mom = money.mom;
-      high_score_money.dad = money.dad;
-      document.getElementById("tony-highscore").innerHTML =
-        high_score_money.tony;
-      document.getElementById("eric-highscore").innerHTML =
-        high_score_money.eric;
-      document.getElementById("mom-highscore").innerHTML = high_score_money.mom;
-      document.getElementById("dad-highscore").innerHTML = high_score_money.dad;
-    }
-    // removes lowest score
-    if (low_score_money_array[array_length - 1] < 100) {
-      low_score_money.tony = money.tony;
-      low_score_money.eric = money.eric;
-      low_score_money.dad = money.dad;
-      document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
-      document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
-      document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
-    }
-
-    // resets prize won
-    if (win_prize[array_length - 1] === 0 && turns_left === 16) {
-      document.getElementById("tony-prize").innerHTML = 0;
-      document.getElementById("eric-prize").innerHTML = 0;
-      document.getElementById("mom-prize").innerHTML = 0;
-      document.getElementById("dad-prize").innerHTML = 0;
-    } else {
-      document.getElementById("mom-prize").innerHTML =
-        "+" + previous_highest_win.mom;
-      document.getElementById("eric-prize").innerHTML =
-        "-" + previous_highest_win.mom / 3;
-      document.getElementById("tony-prize").innerHTML =
-        "-" + previous_highest_win.mom / 3;
-      document.getElementById("dad-prize").innerHTML =
-        "-" + previous_highest_win.mom / 3;
-    }
-
-    // figures out how many turns are left and makes the red circle work
-    //   position_tracker_with_rounds();
-
-  // turn_counter();
-     if (counter3 >= 2) {
-       counter3--;
-    
-       document.getElementById("mom-king").innerHTML = counter3;
-       document.getElementById("mom-king").style.visiblity = "visible";
-       document.getElementById("mom-red").style.visiblity = "visible";
- 
-     } else if (counter3 === 1) {
-      counter3--;
-      document.getElementById("mom-king").style.visibility = "hidden";
-      document.getElementById("mom-red").style.visiblity = "visible";
-    }
-    else {
-       if (turns_left != 16) {
-         turns_left++;
-         document.getElementById('turns-left').innerHTML = turns_left;
-         document.getElementById('turns-left').style.visibility = 'visible';
-       }
-       document.getElementById("mom-king").style.visibility = "hidden";
-       document.getElementById("mom-red").style.visiblity = "hidden";
- 
-       if (round_counter === 1) {
-         round_counter = 4;
-       } else {
-         round_counter--;
-       }
-       turn_counter();
-       reset_to_last_round();
-     }
-
-
-  } else if (win_order[array_length - 1] === "d") {
-    // resets money won
-    money.dad -= win_prize[array_length];
-    money.eric += win_prize[array_length] / 3;
-    money.tony += win_prize[array_length] / 3;
-    money.mom += win_prize[array_length] / 3;
-
-    // redos highest win
-    if (
-      previous_highest_win.dad != highest_money_won.dad &&
-      repeated_win_counter.dad != 1
-    ) {
-      document.getElementById("dad-highest-money-received").innerHTML =
-        highest_money_won.dad - difference_from_previous_highest_win.dad;
-    } else {
-      document.getElementById("dad-highest-money-received").innerHTML =
-        previous_highest_win.dad;
-    }
-    // minus wins
-    wins.dad -= 1;
-    document.getElementById("display-wins-dad").innerHTML = wins.dad;
-
-    // undos money received chart
-    if (win_prize[array_length] > 0) {
-      money_won.dad -= win_prize[array_length];
-      document.getElementById("dad-moneymade").innerHTML = money_won.dad;
-    } else {
-      money_won.eric += win_prize[array_length] / 3;
-      money_won.mom += win_prize[array_length] / 3;
-      money_won.tony += win_prize[array_length] / 3;
-      document.getElementById("eric-moneymade").innerHTML = money_won.eric;
-      document.getElementById("mom-moneymade").innerHTML = money_won.mom;
-      document.getElementById("tony-moneymade").innerHTML = money_won.tony;
-    }
-
-    // removes highscore
-    if (high_score_money_array[array_length - 1] > 0) {
-      high_score_money.tony = money.tony;
-      high_score_money.eric = money.eric;
-      high_score_money.mom = money.mom;
-      high_score_money.dad = money.dad;
-      document.getElementById("tony-highscore").innerHTML =
-        high_score_money.tony;
-      document.getElementById("eric-highscore").innerHTML =
-        high_score_money.eric;
-      document.getElementById("mom-highscore").innerHTML = high_score_money.mom;
-      document.getElementById("dad-highscore").innerHTML = high_score_money.dad;
-    }
-
-    // removes lowest score
-    if (low_score_money_array[array_length - 1] < 100) {
-      low_score_money.tony = money.tony;
-      low_score_money.eric = money.eric;
-      low_score_money.mom = money.mom;
-      document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
-      document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
-      document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
-    }
-
-    // resets prize won
-    if (win_prize[array_length - 1] === 0 && turns_left === 16) {
-      document.getElementById("tony-prize").innerHTML = 0;
-      document.getElementById("eric-prize").innerHTML = 0;
-      document.getElementById("mom-prize").innerHTML = 0;
-      document.getElementById("dad-prize").innerHTML = 0;
-    } else {
-      document.getElementById("dad-prize").innerHTML =
-        "+" + previous_highest_win.dad;
-      document.getElementById("eric-prize").innerHTML =
-        "-" + previous_highest_win.dad / 3;
-      document.getElementById("mom-prize").innerHTML =
-        "-" + previous_highest_win.dad / 3;
-      document.getElementById("tony-prize").innerHTML =
-        "-" + previous_highest_win.dad / 3;
-    }
-
-    // figures out how many turns are left and makes the red circle work
-    //   position_tracker_with_rounds();
-
-  // turn_counter();
-     if (counter4 >= 2) {
-       counter4--;
-
-       document.getElementById("dad-king").innerHTML = counter4;
-       document.getElementById("dad-king").style.visiblity = "visible";
-       document.getElementById("dad-red").style.visiblity = "visible";
- 
-     } else if (counter4=== 1) {
-      counter4--;
-      document.getElementById("dad-king").style.visibility = "hidden";
-      document.getElementById("dad-red").style.visiblity = "visible";
-    }
-     else {
-       if (turns_left != 16) {
-         turns_left++;
-         document.getElementById('turns-left').innerHTML = turns_left;
-         document.getElementById('turns-left').style.visibility = 'visible';
-       }
-       document.getElementById("dad-king").style.visibility = "hidden";
-       document.getElementById("dad-red").style.visiblity = "hidden";
- 
-       if (round_counter === 1) {
-         round_counter = 4;
-       } else {
-         round_counter--;
-       }
-       turn_counter();
-       reset_to_last_round();
-     }
-    }
-
-  setMoney();
-  win_order.pop();
-  win_prize.pop();
+    setMoney();
+    win_order.pop();
+    win_prize.pop();
+  }
 });
 
 /*
@@ -822,7 +807,6 @@ document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
 document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
 document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
 document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
-
 
 // variables for event listeners
 let ti = document.getElementById("ti");
@@ -1188,7 +1172,7 @@ ei.addEventListener("keyup", function (event) {
     if (!isNaN(val)) {
       if (repeated_counter_eric === true) {
         how_many_rounds_passed++;
-   
+
         repeated_counter_eric = false;
         repeated_counter_tony = true;
         repeated_counter_mom = true;
@@ -1318,7 +1302,7 @@ mi.addEventListener("keyup", function (event) {
     if (!isNaN(val)) {
       if (repeated_counter_mom === true) {
         how_many_rounds_passed++;
- 
+
         repeated_counter_mom = false;
         repeated_counter_eric = true;
         repeated_counter_tony = true;
@@ -1450,7 +1434,7 @@ di.addEventListener("keyup", function (event) {
     if (!isNaN(val)) {
       if (repeated_counter_dad === true) {
         how_many_rounds_passed++;
-        
+
         repeated_counter_dad = false;
         repeated_counter_eric = true;
         repeated_counter_mom = true;
