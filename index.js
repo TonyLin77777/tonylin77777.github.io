@@ -382,13 +382,18 @@ reset_button.addEventListener("click", function (event) {
 
       // removes lowest score
       if (low_score_money_array[array_length - 1] < 100) {
+        if (money.mom > low_score_money.mom) {
         low_score_money.mom = money.mom;
-        low_score_money.eric = money.eric;
-        low_score_money.dad = money.dad;
         document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
-        document.getElementById("eric-lowscore").innerHTML =
-          low_score_money.eric;
+        }
+        if (money.eric > low_score_money.eric) {
+        low_score_money.eric = money.eric;
+        document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
+        }
+        if (money.dad > low_score_money.dad){
+        low_score_money.dad = money.dad;
         document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
+        }
       }
 
       // resets prize won
@@ -493,13 +498,18 @@ reset_button.addEventListener("click", function (event) {
 
       // removes lowest score
       if (low_score_money_array[array_length - 1] < 100) {
-        low_score_money.tony = money.tony;
+        if (money.mom > low_score_money.mom) {
         low_score_money.mom = money.mom;
-        low_score_money.dad = money.dad;
-        document.getElementById("tony-lowscore").innerHTML =
-          low_score_money.tony;
         document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
+        }
+        if (money.tony > low_score_money.tony) {
+        low_score_money.tony = money.tony;
+        document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
+        }
+        if (money.dad > low_score_money.dad){
+        low_score_money.dad = money.dad;
         document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
+        }
       }
 
       // resets prize won
@@ -602,14 +612,18 @@ reset_button.addEventListener("click", function (event) {
       }
       // removes lowest score
       if (low_score_money_array[array_length - 1] < 100) {
+        if (money.tony > low_score_money.tony) {
         low_score_money.tony = money.tony;
+        document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
+        }
+        if (money.eric > low_score_money.eric) {
         low_score_money.eric = money.eric;
+        document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
+        }
+        if (money.dad > low_score_money.dad){
         low_score_money.dad = money.dad;
-        document.getElementById("tony-lowscore").innerHTML =
-          low_score_money.tony;
-        document.getElementById("eric-lowscore").innerHTML =
-          low_score_money.eric;
         document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
+        }
       }
 
       // resets prize won
@@ -713,14 +727,18 @@ reset_button.addEventListener("click", function (event) {
 
       // removes lowest score
       if (low_score_money_array[array_length - 1] < 100) {
-        low_score_money.tony = money.tony;
-        low_score_money.eric = money.eric;
+        if (money.mom > low_score_money.mom) {
         low_score_money.mom = money.mom;
-        document.getElementById("tony-lowscore").innerHTML =
-          low_score_money.tony;
-        document.getElementById("eric-lowscore").innerHTML =
-          low_score_money.eric;
         document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
+        }
+        if (money.eric > low_score_money.eric) {
+        low_score_money.eric = money.eric;
+        document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
+        }
+        if (money.tony > low_score_money.tony){
+        low_score_money.tony = money.tony;
+        document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
+        }
       }
 
       // resets prize won
