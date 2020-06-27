@@ -65,11 +65,11 @@ let difference_from_previous_highest_win = {
   dad: 0,
 };
 
-let previous_highest_win = {
-  tony: 0,
-  eric: 0,
-  mom: 0,
-  dad: 0,
+let highest_win_tracker = {
+  tony: [0],
+  eric: [0],
+  mom: [0],
+  dad: [0],
 };
 
 let repeated_win_counter = {
@@ -278,13 +278,68 @@ let reset_to_last_round = () => {
   eric_boolean = false;
   mom_boolean = false;
   dad_boolean = false;
-  if (array_length === 1 ) {
+  if (array_length === 1) {
     repeated_counter_dad = true;
     repeated_counter_eric = true;
     repeated_counter_mom = true;
     repeated_counter_tony = true;
   }
 };
+
+let lowest_score_undo = () => {
+  low_score_money_array.tony.pop();
+  low_score_money_array.eric.pop();
+  low_score_money_array.mom.pop();
+  low_score_money_array.dad.pop();
+  document.getElementById('tony-lowscore').innerHTML = low_score_money_array.tony[low_score_money_array.tony.length - 1];
+  document.getElementById('tony-lowscore').style.visibility = 'visible';
+  document.getElementById('eric-lowscore').innerHTML = low_score_money_array.eric[low_score_money_array.eric.length - 1];
+  document.getElementById('eric-lowscore').style.visibility = 'visible';
+  document.getElementById('mom-lowscore').innerHTML = low_score_money_array.mom[low_score_money_array.mom.length - 1];
+  document.getElementById('mom-lowscore').style.visibility = 'visible';
+  document.getElementById('dad-lowscore').innerHTML = low_score_money_array.dad[low_score_money_array.dad.length - 1];
+  document.getElementById('dad-lowscore').style.visibility = 'visible';
+}
+
+let lowest_score_undo_tracker = () => {
+  lowest = low_score_money_array.tony[low_score_money_array.tony.length - 1];
+  low_score_money_array.tony.push(Math.min(lowest, money.tony));
+  lowest = low_score_money_array.eric[low_score_money_array.eric.length - 1];
+  low_score_money_array.eric.push(Math.min(lowest, money.eric));
+  lowest = low_score_money_array.mom[low_score_money_array.mom.length - 1];
+  low_score_money_array.mom.push(Math.min(lowest, money.mom));
+  lowest = low_score_money_array.dad[low_score_money_array.dad.length - 1];
+  low_score_money_array.dad.push(Math.min(lowest, money.dad));
+}
+
+let highest_score_undo = () => {
+  high_score_money_array.tony.pop();
+  high_score_money_array.eric.pop();
+  high_score_money_array.mom.pop();
+  high_score_money_array.dad.pop();
+  document.getElementById('tony-highscore').innerHTML = high_score_money_array.tony[high_score_money_array.tony.length - 1];
+  document.getElementById('tony-highscore').style.visibility = 'visible';
+  document.getElementById('eric-highscore').innerHTML = high_score_money_array.eric[high_score_money_array.eric.length - 1];
+  document.getElementById('eric-highscore').style.visibility = 'visible';
+  document.getElementById('mom-highscore').innerHTML = high_score_money_array.mom[high_score_money_array.mom.length - 1];
+  document.getElementById('mom-highscore').style.visibility = 'visible';
+  document.getElementById('dad-highscore').innerHTML = high_score_money_array.dad[high_score_money_array.dad.length - 1];
+  document.getElementById('dad-highscore').style.visibility = 'visible';
+}
+
+let highest_score_undo_tracker = () => {
+  highest = high_score_money_array.tony[high_score_money_array.tony.length - 1];
+  high_score_money_array.tony.push(Math.max(lowest, money.tony));
+  highest = high_score_money_array.eric[high_score_money_array.eric.length - 1];
+  high_score_money_array.eric.push(Math.max(lowest, money.eric));
+  highest = high_score_money_array.mom[high_score_money_array.mom.length - 1];
+  high_score_money_array.mom.push(Math.max(lowest, money.mom));
+  highest = high_score_money_array.dad[high_score_money_array.dad.length - 1];
+  high_score_money_array.dad.push(Math.max(lowest, money.dad));
+}
+let lowest;
+let highest;
+
 /*
   let array_length = win_order.length;
   if (most_recent_winnings.tony > 0) {
@@ -336,16 +391,8 @@ reset_button.addEventListener("click", function (event) {
       money.mom += win_prize[array_length] / 3;
 
       // redos highest win
-      if (
-        previous_highest_win.tony != highest_money_won.tony &&
-        repeated_win_counter.tony != 1
-      ) {
-        document.getElementById("tony-highest-money-received").innerHTML =
-          highest_money_won.tony - difference_from_previous_highest_win.tony;
-      } else {
-        document.getElementById("tony-highest-money-received").innerHTML =
-          previous_highest_win.tony;
-      }
+      highest_win_tracker.tony.pop();
+      document.getElementById('tony-highest-money-received').innerHTML = highest_win_tracker.tony[highest_win_tracker.tony.length - 1];
 
       // minus wins
       wins.tony -= 1;
@@ -365,36 +412,11 @@ reset_button.addEventListener("click", function (event) {
       }
 
       // removes highscore
-      if (high_score_money_array[array_length - 1] > 0) {
-        high_score_money.tony = money.tony;
-        high_score_money.eric = money.eric;
-        high_score_money.mom = money.mom;
-        high_score_money.dad = money.dad;
-        document.getElementById("tony-highscore").innerHTML =
-          high_score_money.tony;
-        document.getElementById("eric-highscore").innerHTML =
-          high_score_money.eric;
-        document.getElementById("mom-highscore").innerHTML =
-          high_score_money.mom;
-        document.getElementById("dad-highscore").innerHTML =
-          high_score_money.dad;
-      }
+      highest_score_undo();
 
       // removes lowest score
-      if (low_score_money_array[array_length - 1] < 100) {
-        if (money.mom > low_score_money.mom) {
-        low_score_money.mom = money.mom;
-        document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
-        }
-        if (money.eric > low_score_money.eric) {
-        low_score_money.eric = money.eric;
-        document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
-        }
-        if (money.dad > low_score_money.dad){
-        low_score_money.dad = money.dad;
-        document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
-        }
-      }
+      lowest_score_undo();
+
 
       // resets prize won
       if (win_prize[array_length - 1] === 0 && turns_left === 16) {
@@ -404,13 +426,13 @@ reset_button.addEventListener("click", function (event) {
         document.getElementById("dad-prize").innerHTML = 0;
       } else {
         document.getElementById("tony-prize").innerHTML =
-          "+" + previous_highest_win.tony;
+          "+" + win_prize[array_length];
         document.getElementById("eric-prize").innerHTML =
-          "-" + previous_highest_win.tony / 3;
+          "-" + win_prize[array_length] / 3;
         document.getElementById("mom-prize").innerHTML =
-          "-" + previous_highest_win.tony / 3;
+          "-" + win_prize[array_length] / 3;
         document.getElementById("dad-prize").innerHTML =
-          "-" + previous_highest_win.tony / 3;
+          "-" + win_prize[array_length] / 3;
       }
       // figures out how many turns are left and makes the red circle work
 
@@ -452,16 +474,8 @@ reset_button.addEventListener("click", function (event) {
       money.mom += win_prize[array_length] / 3;
 
       // redos highest win
-      if (
-        previous_highest_win.eric != highest_money_won.eric &&
-        repeated_win_counter.eric != 1
-      ) {
-        document.getElementById("eric-highest-money-received").innerHTML =
-          highest_money_won.eric - difference_from_previous_highest_win.eric;
-      } else {
-        document.getElementById("eric-highest-money-received").innerHTML =
-          previous_highest_win.eric;
-      }
+      highest_win_tracker.eric.pop();
+      document.getElementById('eric-highest-money-received').innerHTML = highest_win_tracker.eric[highest_win_tracker.eric.length - 1];
 
       // minus wins
       wins.eric -= 1;
@@ -481,36 +495,10 @@ reset_button.addEventListener("click", function (event) {
       }
 
       // removes highscore
-      if (high_score_money_array[array_length - 1] > 0) {
-        high_score_money.tony = money.tony;
-        high_score_money.eric = money.eric;
-        high_score_money.mom = money.mom;
-        high_score_money.dad = money.dad;
-        document.getElementById("tony-highscore").innerHTML =
-          high_score_money.tony;
-        document.getElementById("eric-highscore").innerHTML =
-          high_score_money.eric;
-        document.getElementById("mom-highscore").innerHTML =
-          high_score_money.mom;
-        document.getElementById("dad-highscore").innerHTML =
-          high_score_money.dad;
-      }
+      highest_score_undo();
 
       // removes lowest score
-      if (low_score_money_array[array_length - 1] < 100) {
-        if (money.mom > low_score_money.mom) {
-        low_score_money.mom = money.mom;
-        document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
-        }
-        if (money.tony > low_score_money.tony) {
-        low_score_money.tony = money.tony;
-        document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
-        }
-        if (money.dad > low_score_money.dad){
-        low_score_money.dad = money.dad;
-        document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
-        }
-      }
+      lowest_score_undo();
 
       // resets prize won
       if (win_prize[array_length - 1] === 0 && turns_left === 16) {
@@ -520,13 +508,13 @@ reset_button.addEventListener("click", function (event) {
         document.getElementById("dad-prize").innerHTML = 0;
       } else {
         document.getElementById("eric-prize").innerHTML =
-          "+" + previous_highest_win.eric;
+          "+" + win_prize[array_length];
         document.getElementById("tony-prize").innerHTML =
-          "-" + previous_highest_win.eric / 3;
+          "-" + win_prize[array_length] / 3;
         document.getElementById("mom-prize").innerHTML =
-          "-" + previous_highest_win.eric / 3;
+          "-" + win_prize[array_length] / 3;
         document.getElementById("dad-prize").innerHTML =
-          "-" + previous_highest_win.eric / 3;
+          "-" + win_prize[array_length] / 3;
       }
       // figures out how many turns are left and makes the red circle work
 
@@ -568,16 +556,8 @@ reset_button.addEventListener("click", function (event) {
       money.tony += win_prize[array_length] / 3;
 
       // redos highest win
-      if (
-        previous_highest_win.mom != highest_money_won.mom &&
-        repeated_win_counter.mom != 1
-      ) {
-        document.getElementById("mom-highest-money-received").innerHTML =
-          highest_money_won.mom - difference_from_previous_highest_win.mom;
-      } else {
-        document.getElementById("mom-highest-money-received").innerHTML =
-          previous_highest_win.mom;
-      }
+      highest_win_tracker.mom.pop();
+      document.getElementById('mom-highest-money-received').innerHTML = highest_win_tracker.mom[highest_win_tracker.mom.length - 1];
       // minus wins
       wins.mom -= 1;
       document.getElementById("display-wins-mom").innerHTML = wins.mom;
@@ -596,35 +576,11 @@ reset_button.addEventListener("click", function (event) {
       }
 
       // removes highscore
-      if (high_score_money_array[array_length - 1] > 0) {
-        high_score_money.tony = money.tony;
-        high_score_money.eric = money.eric;
-        high_score_money.mom = money.mom;
-        high_score_money.dad = money.dad;
-        document.getElementById("tony-highscore").innerHTML =
-          high_score_money.tony;
-        document.getElementById("eric-highscore").innerHTML =
-          high_score_money.eric;
-        document.getElementById("mom-highscore").innerHTML =
-          high_score_money.mom;
-        document.getElementById("dad-highscore").innerHTML =
-          high_score_money.dad;
-      }
+      highest_score_undo();
+
+
       // removes lowest score
-      if (low_score_money_array[array_length - 1] < 100) {
-        if (money.tony > low_score_money.tony) {
-        low_score_money.tony = money.tony;
-        document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
-        }
-        if (money.eric > low_score_money.eric) {
-        low_score_money.eric = money.eric;
-        document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
-        }
-        if (money.dad > low_score_money.dad){
-        low_score_money.dad = money.dad;
-        document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
-        }
-      }
+      lowest_score_undo();
 
       // resets prize won
       if (win_prize[array_length - 1] === 0 && turns_left === 16) {
@@ -634,13 +590,13 @@ reset_button.addEventListener("click", function (event) {
         document.getElementById("dad-prize").innerHTML = 0;
       } else {
         document.getElementById("mom-prize").innerHTML =
-          "+" + previous_highest_win.mom;
+          "+" + win_prize[array_length];
         document.getElementById("eric-prize").innerHTML =
-          "-" + previous_highest_win.mom / 3;
+          "-" + win_prize[array_length] / 3;
         document.getElementById("tony-prize").innerHTML =
-          "-" + previous_highest_win.mom / 3;
+          "-" + win_prize[array_length] / 3;
         document.getElementById("dad-prize").innerHTML =
-          "-" + previous_highest_win.mom / 3;
+          "-" + win_prize[array_length] / 3;
       }
 
       // figures out how many turns are left and makes the red circle work
@@ -682,16 +638,9 @@ reset_button.addEventListener("click", function (event) {
       money.mom += win_prize[array_length] / 3;
 
       // redos highest win
-      if (
-        previous_highest_win.dad != highest_money_won.dad &&
-        repeated_win_counter.dad != 1
-      ) {
-        document.getElementById("dad-highest-money-received").innerHTML =
-          highest_money_won.dad - difference_from_previous_highest_win.dad;
-      } else {
-        document.getElementById("dad-highest-money-received").innerHTML =
-          previous_highest_win.dad;
-      }
+      highest_win_tracker.dad.pop();
+      document.getElementById('dad-highest-money-received').innerHTML = highest_win_tracker.dad[highest_win_tracker.dad.length - 1];
+
       // minus wins
       wins.dad -= 1;
       document.getElementById("display-wins-dad").innerHTML = wins.dad;
@@ -710,36 +659,10 @@ reset_button.addEventListener("click", function (event) {
       }
 
       // removes highscore
-      if (high_score_money_array[array_length - 1] > 0) {
-        high_score_money.tony = money.tony;
-        high_score_money.eric = money.eric;
-        high_score_money.mom = money.mom;
-        high_score_money.dad = money.dad;
-        document.getElementById("tony-highscore").innerHTML =
-          high_score_money.tony;
-        document.getElementById("eric-highscore").innerHTML =
-          high_score_money.eric;
-        document.getElementById("mom-highscore").innerHTML =
-          high_score_money.mom;
-        document.getElementById("dad-highscore").innerHTML =
-          high_score_money.dad;
-      }
+      highest_score_undo();
 
       // removes lowest score
-      if (low_score_money_array[array_length - 1] < 100) {
-        if (money.mom > low_score_money.mom) {
-        low_score_money.mom = money.mom;
-        document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
-        }
-        if (money.eric > low_score_money.eric) {
-        low_score_money.eric = money.eric;
-        document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
-        }
-        if (money.tony > low_score_money.tony){
-        low_score_money.tony = money.tony;
-        document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
-        }
-      }
+      lowest_score_undo();
 
       // resets prize won
       if (win_prize[array_length - 1] === 0 && turns_left === 16) {
@@ -749,13 +672,13 @@ reset_button.addEventListener("click", function (event) {
         document.getElementById("dad-prize").innerHTML = 0;
       } else {
         document.getElementById("dad-prize").innerHTML =
-          "+" + previous_highest_win.dad;
+          "+" + win_prize[array_length];
         document.getElementById("eric-prize").innerHTML =
-          "-" + previous_highest_win.dad / 3;
+          "-" + win_prize[array_length] / 3;
         document.getElementById("mom-prize").innerHTML =
-          "-" + previous_highest_win.dad / 3;
+          "-" + win_prize[array_length] / 3;
         document.getElementById("tony-prize").innerHTML =
-          "-" + previous_highest_win.dad / 3;
+          "-" + win_prize[array_length] / 3;
       }
 
       // figures out how many turns are left and makes the red circle work
@@ -844,59 +767,61 @@ setMoney = () => {
   document.getElementById("dm").innerHTML = money.dad;
 };
 
-let high_score_money_array = [];
-let low_score_money_array = [];
+let high_score_money_array = {
+  tony: [100],
+  eric: [100],
+  mom: [100],
+  dad: [100],
+};
+let low_score_money_array = {
+  tony: [100],
+  eric: [100],
+  mom: [100],
+  dad: [100],
+};
 // function for high and low score
 let high_and_low_score = (high_score_money, money) => {
   // sets highscore for money
   if (money.tony > high_score_money.tony) {
     high_score_money.tony = money.tony;
     document.getElementById("tony-highscore").innerHTML = high_score_money.tony;
-    high_score_money_array.pop();
-    high_score_money_array.push(high_score_money.tony);
+
   }
   if (money.eric > high_score_money.eric) {
     high_score_money.eric = money.eric;
     document.getElementById("eric-highscore").innerHTML = high_score_money.eric;
-    high_score_money_array.pop();
-    high_score_money_array.push(high_score_money.eric);
+
   }
   if (money.mom > high_score_money.mom) {
     high_score_money.mom = money.mom;
     document.getElementById("mom-highscore").innerHTML = high_score_money.mom;
-    high_score_money_array.pop();
-    high_score_money_array.push(high_score_money.mom);
+
   }
   if (money.dad > high_score_money.dad) {
     high_score_money.dad = money.dad;
     document.getElementById("dad-highscore").innerHTML = high_score_money.dad;
-    high_score_money_array.pop();
-    high_score_money_array.push(high_score_money.dad);
+
   }
   // sets lowest score for money
   if (money.tony < low_score_money.tony) {
     low_score_money.tony = money.tony;
     document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
-    low_score_money_array.pop();
-    low_score_money_array.push(low_score_money.tony);
+
   }
   if (money.eric < low_score_money.eric) {
     low_score_money.eric = money.eric;
     document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
-    low_score_money_array.pop();
-    low_score_money_array.push(low_score_money.eric);
+
   }
   if (money.mom < low_score_money.mom) {
     low_score_money.mom = money.mom;
     document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
-    low_score_money_array.pop();
-    low_score_money_array.push(low_score_money.mom);
+
   }
   if (money.dad < low_score_money.dad) {
     low_score_money.dad = money.dad;
     document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
-    low_score_money_array.pop();
-    low_score_money_array.push(low_score_money.dad);
+
   }
 };
 // changes the visibility for the red circle (finds out who current leader is)
@@ -1085,9 +1010,13 @@ ti.addEventListener("keyup", function (event) {
       // keeps track of wins and prize money for reset button
       win_order.push("t");
       win_prize.push(3 * val);
-      high_score_money_array.push(0);
-      //push k because the lowest amount of money can change
-      low_score_money_array.push("k");
+
+      // keeps track of highest money array
+      highest_score_undo_tracker();
+
+      // keeps track of lowest money array
+      lowest_score_undo_tracker();
+
       if (val > 0) {
         wins.tony++;
         document.getElementById("display-wins-tony").innerHTML = wins.tony;
@@ -1100,15 +1029,22 @@ ti.addEventListener("keyup", function (event) {
         document.getElementById("tony-moneymade").innerHTML = money_won.tony;
 
         if (val * 3 >= highest_money_won.tony) {
-          difference_from_previous_highest_win.tony =
-            val * 3 - highest_money_won.tony;
-          previous_highest_win.tony = highest_money_won.tony;
+
           highest_money_won.tony = val * 3;
-          document.getElementById("tony-highest-money-received").innerHTML =
-            val * 3;
+          document.getElementById("tony-highest-money-received").innerHTML = val * 3;
 
           repeated_win_counter.tony++;
         }
+
+        // keeps track of highest single win 
+        if (highest_win_tracker.tony) {
+          let highest = highest_win_tracker.tony[highest_win_tracker.tony.length - 1];
+          highest_win_tracker.tony.push(Math.max(highest, val * 3));
+        }
+        else {
+          highest_win_tracker.tony.push(val * 3);
+        }
+
       } else if (val < 0) {
         wins.tony--;
         document.getElementById("display-wins-tony").innerHTML = wins.tony;
@@ -1124,6 +1060,7 @@ ti.addEventListener("keyup", function (event) {
         document.getElementById("eric-moneymade").innerHTML = money_won.eric;
         document.getElementById("mom-moneymade").innerHTML = money_won.mom;
       }
+
     }
     // sets highest score and lowest score for money
     high_and_low_score(high_score_money, money);
@@ -1213,9 +1150,12 @@ ei.addEventListener("keyup", function (event) {
       // keeps track of wins and prize money for reset button
       win_order.push("e");
       win_prize.push(3 * val);
-      high_score_money_array.push(0);
-      //push k because the lowest amount of money can change
-      low_score_money_array.push("k");
+
+      // keeps track of highest money array
+      highest_score_undo_tracker();
+
+      // keeps track of lowest money array
+      lowest_score_undo_tracker();
 
       if (val > 0) {
         wins.eric++;
@@ -1229,15 +1169,23 @@ ei.addEventListener("keyup", function (event) {
         document.getElementById("eric-moneymade").innerHTML = money_won.eric;
 
         if (val * 3 >= highest_money_won.eric) {
-          difference_from_previous_highest_win.eric =
-            val * 3 - highest_money_won.eric;
-          previous_highest_win.eric = highest_money_won.eric;
+
           highest_money_won.eric = val * 3;
           document.getElementById("eric-highest-money-received").innerHTML =
             val * 3;
 
           repeated_win_counter.eric++;
         }
+
+        // keeps track of highest single win 
+        if (highest_win_tracker.eric) {
+          let highest = highest_win_tracker.eric[highest_win_tracker.eric.length - 1];
+          highest_win_tracker.eric.push(Math.max(highest, val * 3));
+        }
+        else {
+          highest_win_tracker.eric.push(val * 3);
+        }
+
       } else if (val < 0) {
         wins.eric++;
         document.getElementById("display-wins-eric").innerHTML = wins.eric;
@@ -1345,9 +1293,13 @@ mi.addEventListener("keyup", function (event) {
       // keeps track of wins and prize money for reset button
       win_order.push("m");
       win_prize.push(3 * val);
-      high_score_money_array.push(0);
-      //push k because the lowest amount of money can change
-      low_score_money_array.push("k");
+
+      // keeps track of highest money array
+      highest_score_undo_tracker();
+
+      // keeps track of lowest money array
+      lowest_score_undo_tracker();
+
       if (val > 0) {
         wins.mom++;
         document.getElementById("display-wins-mom").innerHTML = wins.mom;
@@ -1360,15 +1312,22 @@ mi.addEventListener("keyup", function (event) {
         document.getElementById("mom-moneymade").innerHTML = money_won.mom;
 
         if (val * 3 >= highest_money_won.mom) {
-          difference_from_previous_highest_win.mom =
-            val * 3 - highest_money_won.mom;
-          previous_highest_win.mom = highest_money_won.mom;
+
           highest_money_won.mom = val * 3;
           document.getElementById("mom-highest-money-received").innerHTML =
             val * 3;
 
           repeated_win_counter.mom++;
         }
+        // keeps track of highest single win 
+        if (highest_win_tracker.mom) {
+          let highest = highest_win_tracker.mom[highest_win_tracker.mom.length - 1];
+          highest_win_tracker.mom.push(Math.max(highest, val * 3));
+        }
+        else {
+          highest_win_tracker.mom.push(val * 3);
+        }
+
       } else if (val < 0) {
         wins.mom++;
         document.getElementById("display-wins-mom").innerHTML = wins.mom;
@@ -1477,9 +1436,13 @@ di.addEventListener("keyup", function (event) {
       // keeps track of wins and prize money for reset button
       win_order.push("d");
       win_prize.push(3 * val);
-      high_score_money_array.push(0);
-      //push k because the lowest amount of money can change
-      low_score_money_array.push("k");
+
+      // keeps track of highest money array
+      highest_score_undo_tracker();
+
+      // keeps track of lowest money array
+      lowest_score_undo_tracker();
+
       if (val > 0) {
         wins.dad++;
         document.getElementById("display-wins-dad").innerHTML = wins.dad;
@@ -1492,14 +1455,19 @@ di.addEventListener("keyup", function (event) {
         document.getElementById("dad-moneymade").innerHTML = money_won.dad;
 
         if (val * 3 >= highest_money_won.dad) {
-          difference_from_previous_highest_win.dad =
-            val * 3 - highest_money_won.dad;
-          previous_highest_win.dad = highest_money_won.dad;
           highest_money_won.dad = val * 3;
           document.getElementById("dad-highest-money-received").innerHTML =
             val * 3;
 
           repeated_win_counter.dad++;
+        }
+        // keeps track of highest single win 
+        if (highest_win_tracker.dad) {
+          let highest = highest_win_tracker.dad[highest_win_tracker.dad.length - 1];
+          highest_win_tracker.dad.push(Math.max(highest, val * 3));
+        }
+        else {
+          highest_win_tracker.dad.push(val * 3);
         }
       } else if (val < 0) {
         wins.dad++;
