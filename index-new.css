@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 
+
 body, html {
   box-sizing: border-box;
   padding: 0;
@@ -65,24 +66,38 @@ a {
  */
  /* ----------------------------- */ 
 
+ .red-circle {
+   position: relative; 
+   right: 5vw;
+ }
+ .money-winnings-wins-king{
+
+ }
 .money-winnings-wins-king, .entermoney-red-position-wrapper{
+ overflow: auto;
   text-align: center;
-  overflow: auto;
   display: inline-block;
   height: 100%;
   width: 40%;
   border: 1px solid red;
+
 }
  .entermoney-red-position-wrapper  {
    padding: 0;
   width: 30%; 
   margin: 0 1vw;
+  overflow: hidden;
 }
 .entermoney-red-position-wrapper input {
 position: relative;
 bottom: 1vh;
 right: 1vw;
+padding: 0;
 margin: 0 auto;
+}
+#container-for-everyone-and-reset{
+  height: 100vh;
+  overflow-y: scroll;
 }
  #main-container {
 
@@ -103,9 +118,9 @@ display: inline-block;
    height: 100%;
    width: 20%;
 border: 1px solid red;
-padding: 1px;
 margin: 0 1vw;
 overflow: auto;
+
  }
  .person-div h2 {
    font-size: 5vh;

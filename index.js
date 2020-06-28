@@ -21,20 +21,7 @@ let money_won = {
   mom: 0,
   dad: 0,
 };
-// stores highest money reached
-let high_score_money = {
-  tony: 100,
-  eric: 100,
-  mom: 100,
-  dad: 100,
-};
-// stores lowest money reached
-let low_score_money = {
-  tony: 100,
-  eric: 100,
-  mom: 100,
-  dad: 100,
-};
+
 // stores the wins
 let wins = {
   tony: 0,
@@ -78,6 +65,20 @@ let repeated_win_counter = {
   mom: 1,
   dad: 1,
 };
+
+//initialize the high score values
+document.getElementById("tony-highscore").innerHTML = 100;
+document.getElementById("eric-highscore").innerHTML = 100;
+document.getElementById("dad-highscore").innerHTML = 100;
+document.getElementById("mom-highscore").innerHTML = 100;
+
+//initialize the low score values
+document.getElementById("tony-lowscore").innerHTML = 100;
+document.getElementById("eric-lowscore").innerHTML = 100;
+document.getElementById("dad-lowscore").innerHTML = 100;
+document.getElementById("mom-lowscore").innerHTML = 100;
+
+
 let tony_boolean = false;
 let eric_boolean = false;
 let mom_boolean = false;
@@ -302,6 +303,7 @@ let lowest_score_undo = () => {
 }
 
 let lowest_score_undo_tracker = () => {
+  lowest = 100;
   lowest = low_score_money_array.tony[low_score_money_array.tony.length - 1];
   low_score_money_array.tony.push(Math.min(lowest, money.tony));
   lowest = low_score_money_array.eric[low_score_money_array.eric.length - 1];
@@ -310,10 +312,22 @@ let lowest_score_undo_tracker = () => {
   low_score_money_array.mom.push(Math.min(lowest, money.mom));
   lowest = low_score_money_array.dad[low_score_money_array.dad.length - 1];
   low_score_money_array.dad.push(Math.min(lowest, money.dad));
+
+  document.getElementById('tony-lowscore').innerHTML = low_score_money_array.tony[low_score_money_array.tony.length - 1];
+  document.getElementById('tony-lowscore').style.visibility = 'visible';
+  document.getElementById('eric-lowscore').innerHTML = low_score_money_array.eric[low_score_money_array.eric.length - 1];
+  document.getElementById('eric-lowscore').style.visibility = 'visible';
+  document.getElementById('mom-lowscore').innerHTML = low_score_money_array.mom[low_score_money_array.mom.length - 1];
+  document.getElementById('mom-lowscore').style.visibility = 'visible';
+  document.getElementById('dad-lowscore').innerHTML = low_score_money_array.dad[low_score_money_array.dad.length - 1];
+  document.getElementById('dad-lowscore').style.visibility = 'visible';
+
 }
 
 let highest_score_undo = () => {
+  console.log('b4 ' + high_score_money_array.tony[high_score_money_array.tony.length - 1]);
   high_score_money_array.tony.pop();
+  console.log('aft ' + high_score_money_array.tony[high_score_money_array.tony.length - 1]);
   high_score_money_array.eric.pop();
   high_score_money_array.mom.pop();
   high_score_money_array.dad.pop();
@@ -328,14 +342,24 @@ let highest_score_undo = () => {
 }
 
 let highest_score_undo_tracker = () => {
+  highest = 100;
   highest = high_score_money_array.tony[high_score_money_array.tony.length - 1];
-  high_score_money_array.tony.push(Math.max(lowest, money.tony));
+  high_score_money_array.tony.push(Math.max(highest, money.tony));
   highest = high_score_money_array.eric[high_score_money_array.eric.length - 1];
-  high_score_money_array.eric.push(Math.max(lowest, money.eric));
+  high_score_money_array.eric.push(Math.max(highest, money.eric));
   highest = high_score_money_array.mom[high_score_money_array.mom.length - 1];
-  high_score_money_array.mom.push(Math.max(lowest, money.mom));
+  high_score_money_array.mom.push(Math.max(highest, money.mom));
   highest = high_score_money_array.dad[high_score_money_array.dad.length - 1];
-  high_score_money_array.dad.push(Math.max(lowest, money.dad));
+  high_score_money_array.dad.push(Math.max(highest, money.dad));
+
+  document.getElementById('tony-highscore').innerHTML = high_score_money_array.tony[high_score_money_array.tony.length - 1];
+  document.getElementById('tony-highscore').style.visibility = 'visible';
+  document.getElementById('eric-highscore').innerHTML = high_score_money_array.eric[high_score_money_array.eric.length - 1];
+  document.getElementById('eric-highscore').style.visibility = 'visible';
+  document.getElementById('mom-highscore').innerHTML = high_score_money_array.mom[high_score_money_array.mom.length - 1];
+  document.getElementById('mom-highscore').style.visibility = 'visible';
+  document.getElementById('dad-highscore').innerHTML = high_score_money_array.dad[high_score_money_array.dad.length - 1];
+  document.getElementById('dad-highscore').style.visibility = 'visible';
 }
 let lowest;
 let highest;
@@ -390,6 +414,10 @@ reset_button.addEventListener("click", function (event) {
       money.dad += win_prize[array_length] / 3;
       money.mom += win_prize[array_length] / 3;
 
+      // redo last move for history
+      document.getElementById("history").innerHTML +=
+      "<p> REDO: - [Tony won " + win_prize[array_length] + "]</p>";
+    
       // redos highest win
       highest_win_tracker.tony.pop();
       document.getElementById('tony-highest-money-received').innerHTML = highest_win_tracker.tony[highest_win_tracker.tony.length - 1];
@@ -473,6 +501,10 @@ reset_button.addEventListener("click", function (event) {
       money.dad += win_prize[array_length] / 3;
       money.mom += win_prize[array_length] / 3;
 
+           // redo last move for history
+           document.getElementById("history").innerHTML +=
+           "<p> REDO: - [Eric won " + win_prize[array_length] + "]</p>";
+
       // redos highest win
       highest_win_tracker.eric.pop();
       document.getElementById('eric-highest-money-received').innerHTML = highest_win_tracker.eric[highest_win_tracker.eric.length - 1];
@@ -523,7 +555,6 @@ reset_button.addEventListener("click", function (event) {
       // turn_counter();
       if (counter2 >= 2) {
         counter2--;
-
         document.getElementById("eric-king").innerHTML = counter2;
         document.getElementById("eric-king").style.visiblity = "visible";
         document.getElementById("eric-red").style.visiblity = "visible";
@@ -555,6 +586,9 @@ reset_button.addEventListener("click", function (event) {
       money.dad += win_prize[array_length] / 3;
       money.tony += win_prize[array_length] / 3;
 
+           // redo last move for history
+           document.getElementById("history").innerHTML +=
+           "<p> REDO: - [Mom won " + win_prize[array_length] + "]</p>";
       // redos highest win
       highest_win_tracker.mom.pop();
       document.getElementById('mom-highest-money-received').innerHTML = highest_win_tracker.mom[highest_win_tracker.mom.length - 1];
@@ -637,6 +671,10 @@ reset_button.addEventListener("click", function (event) {
       money.tony += win_prize[array_length] / 3;
       money.mom += win_prize[array_length] / 3;
 
+           // redo last move for history
+           document.getElementById("history").innerHTML +=
+           "<p> REDO: - [Dad won " + win_prize[array_length] + "]</p>";
+
       // redos highest win
       highest_win_tracker.dad.pop();
       document.getElementById('dad-highest-money-received').innerHTML = highest_win_tracker.dad[highest_win_tracker.dad.length - 1];
@@ -712,8 +750,7 @@ reset_button.addEventListener("click", function (event) {
         turn_counter();
         reset_to_last_round();
       }
-    }
-
+    }    
     setMoney();
     win_order.pop();
     win_prize.pop();
@@ -737,17 +774,7 @@ let starting_position_board_names = {
 */
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//initialize the high score values
-document.getElementById("tony-highscore").innerHTML = high_score_money.tony;
-document.getElementById("eric-highscore").innerHTML = high_score_money.eric;
-document.getElementById("dad-highscore").innerHTML = high_score_money.dad;
-document.getElementById("mom-highscore").innerHTML = high_score_money.mom;
 
-//initialize the low score values
-document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
-document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
-document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
-document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
 
 // variables for event listeners
 let ti = document.getElementById("ti");
@@ -779,51 +806,7 @@ let low_score_money_array = {
   mom: [100],
   dad: [100],
 };
-// function for high and low score
-let high_and_low_score = (high_score_money, money) => {
-  // sets highscore for money
-  if (money.tony > high_score_money.tony) {
-    high_score_money.tony = money.tony;
-    document.getElementById("tony-highscore").innerHTML = high_score_money.tony;
 
-  }
-  if (money.eric > high_score_money.eric) {
-    high_score_money.eric = money.eric;
-    document.getElementById("eric-highscore").innerHTML = high_score_money.eric;
-
-  }
-  if (money.mom > high_score_money.mom) {
-    high_score_money.mom = money.mom;
-    document.getElementById("mom-highscore").innerHTML = high_score_money.mom;
-
-  }
-  if (money.dad > high_score_money.dad) {
-    high_score_money.dad = money.dad;
-    document.getElementById("dad-highscore").innerHTML = high_score_money.dad;
-
-  }
-  // sets lowest score for money
-  if (money.tony < low_score_money.tony) {
-    low_score_money.tony = money.tony;
-    document.getElementById("tony-lowscore").innerHTML = low_score_money.tony;
-
-  }
-  if (money.eric < low_score_money.eric) {
-    low_score_money.eric = money.eric;
-    document.getElementById("eric-lowscore").innerHTML = low_score_money.eric;
-
-  }
-  if (money.mom < low_score_money.mom) {
-    low_score_money.mom = money.mom;
-    document.getElementById("mom-lowscore").innerHTML = low_score_money.mom;
-
-  }
-  if (money.dad < low_score_money.dad) {
-    low_score_money.dad = money.dad;
-    document.getElementById("dad-lowscore").innerHTML = low_score_money.dad;
-
-  }
-};
 // changes the visibility for the red circle (finds out who current leader is)
 // and how many times u won while being the leader
 let set_visibility = () => {
@@ -924,13 +907,14 @@ else if (position[name_array[x-1]] === 4 ) {
 }};
 */
 
+let over_flow_property_change = 0;
 // The following 4 event listener gets the user positions
 let tony_position = document.getElementById("position-tony");
 tony_position.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     tony_position.style.display = "none";
     position.tony = parseInt(tony_position.value);
-    // switch_name_positions('tony');
+    over_flow_property_change++;
   }
 });
 
@@ -939,7 +923,7 @@ eric_position.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     eric_position.style.display = "none";
     position.eric = parseInt(eric_position.value);
-    //   switch_name_positions('eric' );
+    over_flow_property_change++;
   }
 });
 
@@ -948,7 +932,7 @@ mom_position.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     mom_position.style.display = "none";
     position.mom = parseInt(mom_position.value);
-    //  switch_name_positions('mom');
+    over_flow_property_change++;
   }
 });
 
@@ -957,9 +941,17 @@ dad_position.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     dad_position.style.display = "none";
     position.dad = parseInt(dad_position.value);
-    //    switch_name_positions('dad');
+    over_flow_property_change++;
   }
 });
+
+if (over_flow_property_change === 4) {
+  let money_enter_wrapper = document.getElementsByClassName('entermoney-red-position-wrapper');
+  for (let x = 0; x <5; x++){
+    money_enter_wrapper[x].style.overflowX = 'scroll';
+    money_enter_wrapper[x].style.overflowY = 'hidden';
+  }
+}
 
 // sets the beginning money every one has
 setMoney();
@@ -1062,8 +1054,7 @@ ti.addEventListener("keyup", function (event) {
       }
 
     }
-    // sets highest score and lowest score for money
-    high_and_low_score(high_score_money, money);
+
 
     // changes the visibility
     set_visibility();
@@ -1202,8 +1193,7 @@ ei.addEventListener("keyup", function (event) {
         document.getElementById("mom-moneymade").innerHTML = money_won.mom;
       }
     }
-    // sets highest score and lowest score for money
-    high_and_low_score(high_score_money, money);
+
 
     // changes the visibility
     set_visibility();
@@ -1344,8 +1334,7 @@ mi.addEventListener("keyup", function (event) {
         document.getElementById("eric-moneymade").innerHTML = money_won.eric;
       }
     }
-    // sets highest score and lowest score for money
-    high_and_low_score(high_score_money, money);
+
 
     // changes the visibility
     set_visibility();
@@ -1486,8 +1475,7 @@ di.addEventListener("keyup", function (event) {
       }
     }
 
-    // sets highest score and lowest score for money
-    high_and_low_score(high_score_money, money);
+
 
     // changes the visibility
     set_visibility();
