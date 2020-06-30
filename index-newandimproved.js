@@ -56,12 +56,14 @@ let renderBalance = () => {
         document.getElementById("balance-player" + (i + 1)).innerHTML = balance[i];
     }
 };
+/////////////// not working
 let roundAndTurnsTracker = () => {
     let turnTracker = 16;
     let roundTracker = 1;
    // turns-left  round-number
+   let currentKing = findRedDot();
    for (let i = 0; i < history.length; i++) {
-       if(history[i][0] !== findRedDot()){
+       if(history[i][0] !== currentKing){
            turnTracker --;
        }
        if (turnTracker % 4 === 0 ) {
@@ -120,7 +122,7 @@ let submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click", function (event) {
     // prevents default behaviour
     event.preventDefault();
-
+console.log('h')
     // deletes the form and shows the counter
     document.getElementById("form").style.display = "none";
     document.getElementById("main-container").style.visibility = "visible";
@@ -130,7 +132,10 @@ submitButton.addEventListener("click", function (event) {
     position = document.getElementsByClassName("position-dropdownlist");
     startingMoney = document.getElementsByClassName("money-input");
 
-    console.log(startingMoney);
+    for (let i = 0; i < 4; i++){
+   position[i] = parseInt(position[i].value);
+    }
+
     // sets up the names
     initializeNames();
 
