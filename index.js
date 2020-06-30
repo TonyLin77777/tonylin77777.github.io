@@ -469,7 +469,6 @@ reset_button.addEventListener("click", function (event) {
       // turn_counter();
       if (counter >= 2) {
         counter--;
-
         document.getElementById("tony-king").innerHTML = counter;
         document.getElementById("tony-king").style.visiblity = "visible";
         document.getElementById("tony-red").style.visiblity = "visible";

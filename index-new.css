@@ -10,8 +10,10 @@ body {
   background-color:white;
 }
 
-/* Navigation Part */ 
+/* Navigation Styles */ 
 /* ----------------------------- */ 
+
+
 nav {
 	font-family: 'Work Sans', sans-serif;
   background-color: #55d6aa;
@@ -66,6 +68,21 @@ a {
  */
  /* ----------------------------- */ 
 
+ /* Form Styles */
+ form{
+   border: 1px solid red;
+   text-align: center;
+ }
+
+.player-information{
+  width: 40vw;
+  height:40vh;
+  display: inline-block;
+}
+form button {
+  display: block;
+}
+  /* ----------------------------- */ 
  .red-circle {
    position: relative; 
    right: 5vw;
@@ -73,8 +90,12 @@ a {
  .money-winnings-wins-king{
 
  }
+ form {
+   display: block;
+ }
 .money-winnings-wins-king, .entermoney-red-position-wrapper{
- overflow: auto;
+ overflow-x: scroll;
+ overflow-y: hidden;
   text-align: center;
   display: inline-block;
   height: 100%;
@@ -83,7 +104,6 @@ a {
 
 }
  .entermoney-red-position-wrapper  {
-   padding: 0;
   width: 30%; 
   margin: 0 1vw;
   overflow: hidden;
@@ -92,17 +112,17 @@ a {
 position: relative;
 bottom: 1vh;
 right: 1vw;
-padding: 0;
-margin: 0 auto;
+
 }
 #container-for-everyone-and-reset{
   height: 100vh;
   overflow-y: scroll;
 }
  #main-container {
-
    background-color: skyblue;
+  visibility: hidden;
  }
+
  .person-div {
    text-align: center;
    height: 15vh;
@@ -112,6 +132,7 @@ margin: 0 auto;
 .display-money, .prize-won, .king, .display-wins-area {
   margin-left:  1.5vw;
   margin-right:  1.5vw;
+  display: inline-block;
 }
  .name-wrapper {
 display: inline-block;

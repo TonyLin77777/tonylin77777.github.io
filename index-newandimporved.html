@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Mahjong Counter
+  </title>
+  <link rel="shortcut icon" type="image/png" href="favicon-mc.png" />
+  <link href="index-new.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <nav id="navigation-container">
+    <h1> Mahjong Counter </h1>
+
+    <ul>
+      <li>
+        <a target="_blank" href="#" class="header-clickable">
+          <h2> Instructions </h2>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href="#" class="header-clickable">
+          <h2> Credits </h2>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href="https://paypal.me/player1MAN77777?locale.x=en_US" class="header-clickable">
+          <h2> Donations </h2>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+
+   <!-- method="GET" action="./index-newandimporved.html" target="_blank" -->
+
+   <form id="form" >
+     <h1> Enter Information Regarding Each Player </h1>
+    <div class="player-information" id="player1">
+      <h2>Player 1</h2>
+      <label class="name-label">
+        Name
+        <input type="text" class="name-input" required />
+      </label>
+
+      <label class="position-label">
+        Position
+        <select class="position-dropdownlist" required >
+          <option value="1"> 1 </option>
+          <option value="2"> 2 </option>
+          <option value="3"> 3 </option>
+          <option value="4"> 4 </option>
+        </select>
+      </label>
+
+      <label class="money-label">
+        Money
+        <input type="number" class="money-input" value=100 required  />
+      </label>
+    </div>
+    <div class="player-information" id="player2">
+      <h2>Player 2</h2>
+      <label class="name-label">
+        Name
+        <input type="text" class="name-input"  required />
+      </label>
+
+      <label class="position-label">
+        Position
+        <select class="position-dropdownlist" required >
+          <option value="1"> 1 </option>
+          <option value="2"> 2 </option>
+          <option value="3"> 3 </option>
+          <option value="4"> 4 </option>
+        </select>
+      </label>
+
+      <label class="money-label">
+        Money
+        <input type="number" class="money-input" value=100 required />
+      </label>
+    </div>
+    <div class="player-information" id="player3">
+      <h2>Player 3</h2>
+      <label class="name-label">
+        Name
+        <input type="text" class="name-input"  required />
+      </label>
+
+      <label class="position-label">
+        Position
+        <select class="position-dropdownlist" required >
+          <option value="1"> 1 </option>
+          <option value="2"> 2 </option>
+          <option value="3"> 3 </option>
+          <option value="4"> 4 </option>
+        </select>
+      </label>
+
+      <label class="money-label">
+        Money
+        <input type="number" class="money-input" value=100 required  />
+      </label>
+    </div>
+    <div class="player-information" id="player4">
+      <h2>Player 4</h2>
+      <label class="name-label" >
+        Name
+        <input type="text" class="name-input" required  />
+      </label>
+
+      <label class="position-label">
+        Position
+        <select class="position-dropdownlist" required >
+          <option value="1"> 1 </option>
+          <option value="2"> 2 </option>
+          <option value="3"> 3 </option>
+          <option value="4"> 4 </option>
+        </select>
+      </label>
+
+      <label class="money-label">
+        Money
+        <input type="number" class="money-input"  value=100 required  />
+      </label>
+    </div>
+
+    <input type="submit" value="Submit" id="submit-button">
+  </form>
+
+
+  <div id="main-container">
+    <div id="container-for-everyone-and-reset">
+      <div id="titles">
+        <div id="round-turns-left">
+          <h2 id="round">
+            ROUND: &nbsp;
+            <h2 id="round-number"> 1 </h2>
+          </h2>
+
+          <h2 class="turns-left-sentence"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Turns Left:
+            &nbsp; <h2 id="turns-left" class="turns-left-sentence"> 16 </h2>
+          </h2>
+
+        </div>
+        <!-- <h4 id="title-for-column"> Enter Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Enter Winnings |
+      Positions &nbsp; &nbsp;  wins / total wins</h4>
+    -->
+      </div>
+
+      <div class="person-div">
+        <div class="name-wrapper">
+ 
+
+          <h2 id="name-player1" class="display-name"></h2>
+        </div>
+        <div class="money-winnings-wins-king">
+          <h2 id="balance-player1" class="display-money">0</h2>
+          <h2 class="prize-won" id="player1-prize"> 0 </h2>
+          <h2 id="display-wins-player1" class="display-wins-area">0</h2>
+          <h2 class="king" id="player1-king"> </h2>
+        </div>
+        <div class="entermoney-red-position-wrapper">
+
+          <h2 id="player1-red" class="red-circle"> 🔴 </h2>
+          <input type="number" id="enter-money-player1" class="enter-money-area" />
+     
+        </div>
+        <br /><br />
+
+      </div>
+      <br />
+      <br />
+      <br />
+      <div class="person-div">
+        <div class="name-wrapper">
+        
+          <h2 id="name-player2" class="display-name"></h2>
+        </div>
+        <div class="money-winnings-wins-king">
+          <h2 id="balance-player2" class="display-money">0</h2>
+          <h2 class="prize-won" id="player2-prize"> 0 </h2>
+          <h2 id="display-wins-player2" class="display-wins-area">0</h2>
+          <h2 class="king" id="player2-king"> </h2>
+
+        </div>
+        <div class="entermoney-red-position-wrapper">
+          <h2 id="player2-red" class="red-circle"> 🔴 </h2>
+          <input type="number" id="enter-money-player2" class="enter-money-area" />
+
+        </div>
+        <br /><br />
+      </div>
+      <br />
+      <br />
+      <br />
+      <div class="person-div">
+        <div class="name-wrapper">
+    
+          <h2 id="name-player3" class="display-name"></h2>
+        </div>
+        <div class="money-winnings-wins-king">
+          <h2 id="balance-player3" class="display-money">0</h2>
+          <h2 class="prize-won" id="player3-prize"> 0 </h2>
+          <h2 id="display-wins-player3" class="display-wins-area">0</h2>
+          <h2 class="king" id="player3-king"> </h2>
+        </div>
+        <div class="entermoney-red-position-wrapper">
+          <h2 id="player3-red" class="red-circle"> 🔴 </h2>
+
+          <input type="number" id="enter-money-player3" class="enter-money-area" />
+
+        </div>
+        <br /><br />
+      </div>
+      <br />
+      <br />
+      <br />
+      <div id="player4-div" class="person-div">
+        <div class="name-wrapper">
+          <h2 id="name-player4" class="display-name"> </h2>
+        
+
+        </div>
+        <div class="money-winnings-wins-king">
+          <h2 id="balance-player4" class="display-money">0</h2>
+          <h2 class="prize-won" id="player4-prize"> 0 </h2>
+          <h2 id="display-wins-player4" class="display-wins-area">0</h2>
+          <h2 class="king" id="player4-king"> </h2>
+        </div>
+
+        <div class="entermoney-red-position-wrapper">
+          <h2 id="player4-red" class="red-circle"> 🔴 </h2>
+          <input type="number" id="enter-money-player4" class="enter-money-area" />
+          
+        </div>
+        <br /><br />
+      </div>
+      <br />
+      <button id="reset-button"> Reset Last Move </button>
+    </div>
+
+    <table id="high-score">
+      <tr>
+        <th colspan="4">
+          Highest $$$
+        </th>
+      </tr>
+      <tr>
+        <td class="table-name-firstperson">
+          p 1
+        </td>
+        <td class="table-name-secondperson">
+          p 2
+        </td>
+        <td class="table-name-thirdperson">
+          p 3
+        </td>
+        <td class="table-name-fourthperson">
+          p 4
+        </td>
+      </tr>
+      <tr>
+        <td id="player1-highscore">
+
+        </td>
+        <td id="player2-highscore">
+
+        </td>
+        <td id="player3-highscore">
+
+        </td>
+        <td id="player4-highscore">
+
+        </td>
+      </tr>
+
+    </table>
+    <table id="lowest-score">
+      <tr>
+        <th colspan="4">
+          Lowest $$$
+        </th>
+      </tr>
+      <tr>
+        <td class="table-name-firstperson">
+          p 1
+        </td>
+        <td class="table-name-secondperson">
+          p 2
+        </td>
+        <td class="table-name-thirdperson">
+          p 3
+        </td>
+        <td class="table-name-fourthperson">
+          p 4
+        </td>
+      </tr>
+      <tr>
+        <td id="player1-lowscore">
+
+        </td>
+        <td id="player2-lowscore">
+
+        </td>
+        <td id="player3-lowscore">
+
+        </td>
+        <td id="player4-lowscore">
+
+        </td>
+      </tr>
+    </table>
+
+    </table>
+    <table id="money-made-chart">
+      <tr>
+        <th colspan="4">
+          Money Received
+        </th>
+      </tr>
+      <tr>
+        <td class="table-name-firstperson">
+          p 1
+        </td>
+        <td class="table-name-secondperson">
+          p 2
+        </td>
+        <td class="table-name-thirdperson">
+          p 3
+        </td>
+        <td class="table-name-fourthperson">
+          p 4
+        </td>
+      </tr>
+      <tr>
+        <td id="player1-moneymade">
+          0
+        </td>
+        <td id="player2-moneymade">
+          0
+        </td>
+        <td id="player3-moneymade">
+          0
+        </td>
+        <td id="player4-moneymade">
+          0
+        </td>
+      </tr>
+    </table>
+
+    <table id="highest-money-made-chart">
+      <tr>
+        <th colspan="4">
+          Highest Single Win
+        </th>
+      </tr>
+      <tr>
+        <td class="table-name-firstperson">
+          p 1
+        </td>
+        <td class="table-name-secondperson">
+          p 2
+        </td>
+        <td class="table-name-thirdperson">
+          p 3
+        </td>
+        <td class="table-name-fourthperson">
+          p 4
+        </td>
+      </tr>
+      <tr>
+        <td id="player1-highest-money-received">
+          0
+        </td>
+        <td id="player2-highest-money-received">
+          0
+        </td>
+        <td id="player3-highest-money-received">
+          0
+        </td>
+        <td id="player4-highest-money-received">
+          0
+        </td>
+      </tr>
+    </table>
+
+    <div id="history">
+      <p>History</p>
+    </div>
+
+    </br>
+    </br>
+  </div>
+  <script src="index-newandimproved.js"></script>
+</body>
+
+</html>

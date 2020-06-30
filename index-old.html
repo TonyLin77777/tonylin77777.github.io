@@ -11,286 +11,293 @@
 
 <body>
 
-    <nav id="navigation-container">
+  <nav id="navigation-container">
     <h1> Mahjong Counter </h1>
-     
-      <ul>
-        <li>
-          <a target="_blank" href="#" class="header-clickable"><h2> Instructions </h2>  </a>
-        </li>
-        <li>
-          <a target="_blank" href="#" class="header-clickable"> <h2> Credits </h2>   </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://paypal.me/TONYMAN77777?locale.x=en_US" class="header-clickable"> <h2> Donations </h2>   </a>
-        </li>
-      </ul>
-    </nav>
 
-    <div id="main-container"> 
-      <div id="container-for-everyone-and-reset">
-  <div id="titles">
-    <div id="round-turns-left"> 
-    <h2 id="round">
-      ROUND: &nbsp;
-      <h2 id="round-number"> 1 </h2>
-    </h2>
- 
-    <h2 class="turns-left-sentence"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Turns Left: &nbsp; <h2 id="turns-left" class="turns-left-sentence"> 16 </h2>
-    </h2>
-   
-  </div>
-    <!-- <h4 id="title-for-column"> Enter Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <ul>
+      <li>
+        <a target="_blank" href="#" class="header-clickable">
+          <h2> Instructions </h2>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href="#" class="header-clickable">
+          <h2> Credits </h2>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href="https://paypal.me/TONYMAN77777?locale.x=en_US" class="header-clickable">
+          <h2> Donations </h2>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div id="main-container">
+    <div id="container-for-everyone-and-reset">
+      <div id="titles">
+        <div id="round-turns-left">
+          <h2 id="round">
+            ROUND: &nbsp;
+            <h2 id="round-number"> 1 </h2>
+          </h2>
+
+          <h2 class="turns-left-sentence"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Turns Left:
+            &nbsp; <h2 id="turns-left" class="turns-left-sentence"> 16 </h2>
+          </h2>
+
+        </div>
+        <!-- <h4 id="title-for-column"> Enter Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Enter Winnings |
       Positions &nbsp; &nbsp;  wins / total wins</h4>
     -->
-  </div>
+      </div>
 
-  <div class="person-div">
-    <div class="name-wrapper"> 
-    <input type="text" id="name-one" class="enter-name" />
-    
-    <h2 id="tony-name" class="display-name"></h2>
+      <div class="person-div">
+        <div class="name-wrapper">
+          <input type="text" id="name-one" class="enter-name" />
+
+          <h2 id="tony-name" class="display-name"></h2>
+        </div>
+        <div class="money-winnings-wins-king">
+          <h2 id="tm" class="display-money">0</h2>
+          <h2 class="prize-won" id="tony-prize"> 0 </h2>
+          <h2 id="display-wins-tony" class="display-wins-area">0</h2>
+          <h2 class="king" id="tony-king"> </h2>
+        </div>
+        <div class="entermoney-red-position-wrapper">
+
+          <h2 id="tony-red" class="red-circle"> 🔴 </h2>
+          <input type="number" id="ti" class="enter-money-area" />
+          <input type="number" id="position-tony" class="position-rankings" />
+        </div>
+        <br /><br />
+
+      </div>
+      <br />
+      <br />
+      <br />
+      <div class="person-div">
+        <div class="name-wrapper">
+          <input type="text" id="name-two" class="enter-name" />
+          <h2 id="eric-name" class="display-name"></h2>
+        </div>
+        <div class="money-winnings-wins-king">
+          <h2 id="em" class="display-money">0</h2>
+          <h2 class="prize-won" id="eric-prize"> 0 </h2>
+          <h2 id="display-wins-eric" class="display-wins-area">0</h2>
+          <h2 class="king" id="eric-king"> </h2>
+
+        </div>
+        <div class="entermoney-red-position-wrapper">
+          <h2 id="eric-red" class="red-circle"> 🔴 </h2>
+          <input type="number" id="ei" class="enter-money-area" />
+          <input type="number" id="position-eric" class="position-rankings" />
+        </div>
+        <br /><br />
+      </div>
+      <br />
+      <br />
+      <br />
+      <div class="person-div">
+        <div class="name-wrapper">
+          <input type="text" id="name-three" class="enter-name" />
+          <h2 id="mom-name" class="display-name"></h2>
+        </div>
+        <div class="money-winnings-wins-king">
+          <h2 id="mm" class="display-money">0</h2>
+          <h2 class="prize-won" id="mom-prize"> 0 </h2>
+          <h2 id="display-wins-mom" class="display-wins-area">0</h2>
+          <h2 class="king" id="mom-king"> </h2>
+        </div>
+        <div class="entermoney-red-position-wrapper">
+          <h2 id="mom-red" class="red-circle"> 🔴 </h2>
+
+          <input type="number" id="mi" class="enter-money-area" />
+          <input type="number" id="position-mom" class="position-rankings" />
+        </div>
+        <br /><br />
+      </div>
+      <br />
+      <br />
+      <br />
+      <div id="dad-div" class="person-div">
+        <div class="name-wrapper">
+          <h2 id="dad-name" class="display-name"> </h2>
+          <input type="text" id="name-four" class="enter-name" />
+
+        </div>
+        <div class="money-winnings-wins-king">
+          <h2 id="dm" class="display-money">0</h2>
+          <h2 class="prize-won" id="dad-prize"> 0 </h2>
+          <h2 id="display-wins-dad" class="display-wins-area">0</h2>
+          <h2 class="king" id="dad-king"> </h2>
+        </div>
+
+        <div class="entermoney-red-position-wrapper">
+          <h2 id="dad-red" class="red-circle"> 🔴 </h2>
+          <input type="number" id="di" class="enter-money-area" />
+          <input type="number" id="position-dad" class="position-rankings" />
+        </div>
+        <br /><br />
+      </div>
+      <br />
+      <button id="reset-button"> Reset Last Move </button>
     </div>
-    <div class="money-winnings-wins-king"> 
-    <h2 id="tm" class="display-money">0</h2>
-    <h2 class="prize-won" id="tony-prize"> 0 </h2>
-    <h2 id="display-wins-tony" class="display-wins-area">0</h2>
-    <h2 class="king" id="tony-king"> </h2>
-</div>
-<div class="entermoney-red-position-wrapper">
 
-    <h2 id="tony-red" class="red-circle"> 🔴 </h2>
-    <input type="number" id="ti" class="enter-money-area" />
-    <input type="number" id="position-tony" class="position-rankings" />
-  </div>
-    <br /><br />
+    <table id="high-score">
+      <tr>
+        <th colspan="4">
+          Highest $$$
+        </th>
+      </tr>
+      <tr>
+        <td class="table-name-firstperson">
+          p 1
+        </td>
+        <td class="table-name-secondperson">
+          p 2
+        </td>
+        <td class="table-name-thirdperson">
+          p 3
+        </td>
+        <td class="table-name-fourthperson">
+          p 4
+        </td>
+      </tr>
+      <tr>
+        <td id="tony-highscore">
 
-  </div>
-  <br />
-  <br />
-  <br />
-  <div class="person-div">
-    <div class="name-wrapper"> 
-    <input type="text" id="name-two" class="enter-name" />
-    <h2 id="eric-name" class="display-name"></h2>
+        </td>
+        <td id="eric-highscore">
+
+        </td>
+        <td id="mom-highscore">
+
+        </td>
+        <td id="dad-highscore">
+
+        </td>
+      </tr>
+
+    </table>
+    <table id="lowest-score">
+      <tr>
+        <th colspan="4">
+          Lowest $$$
+        </th>
+      </tr>
+      <tr>
+        <td class="table-name-firstperson">
+          p 1
+        </td>
+        <td class="table-name-secondperson">
+          p 2
+        </td>
+        <td class="table-name-thirdperson">
+          p 3
+        </td>
+        <td class="table-name-fourthperson">
+          p 4
+        </td>
+      </tr>
+      <tr>
+        <td id="tony-lowscore">
+
+        </td>
+        <td id="eric-lowscore">
+
+        </td>
+        <td id="mom-lowscore">
+
+        </td>
+        <td id="dad-lowscore">
+
+        </td>
+      </tr>
+    </table>
+
+    </table>
+    <table id="money-made-chart">
+      <tr>
+        <th colspan="4">
+          Money Received
+        </th>
+      </tr>
+      <tr>
+        <td class="table-name-firstperson">
+          p 1
+        </td>
+        <td class="table-name-secondperson">
+          p 2
+        </td>
+        <td class="table-name-thirdperson">
+          p 3
+        </td>
+        <td class="table-name-fourthperson">
+          p 4
+        </td>
+      </tr>
+      <tr>
+        <td id="tony-moneymade">
+          0
+        </td>
+        <td id="eric-moneymade">
+          0
+        </td>
+        <td id="mom-moneymade">
+          0
+        </td>
+        <td id="dad-moneymade">
+          0
+        </td>
+      </tr>
+    </table>
+
+    <table id="highest-money-made-chart">
+      <tr>
+        <th colspan="4">
+          Highest Single Win
+        </th>
+      </tr>
+      <tr>
+        <td class="table-name-firstperson">
+          p 1
+        </td>
+        <td class="table-name-secondperson">
+          p 2
+        </td>
+        <td class="table-name-thirdperson">
+          p 3
+        </td>
+        <td class="table-name-fourthperson">
+          p 4
+        </td>
+      </tr>
+      <tr>
+        <td id="tony-highest-money-received">
+          0
+        </td>
+        <td id="eric-highest-money-received">
+          0
+        </td>
+        <td id="mom-highest-money-received">
+          0
+        </td>
+        <td id="dad-highest-money-received">
+          0
+        </td>
+      </tr>
+    </table>
+
+    <div id="history">
+      <p>History</p>
     </div>
-    <div class="money-winnings-wins-king"> 
-    <h2 id="em" class="display-money">0</h2>
-    <h2 class="prize-won" id="eric-prize"> 0 </h2>
-    <h2 id="display-wins-eric" class="display-wins-area">0</h2>
-    <h2 class="king" id="eric-king"> </h2>
 
+    </br>
+    </br>
   </div>
-  <div class="entermoney-red-position-wrapper">
-    <h2 id="eric-red" class="red-circle"> 🔴 </h2>
-    <input type="number" id="ei" class="enter-money-area" />
-    <input type="number" id="position-eric" class="position-rankings" />
-  </div>
-    <br /><br />
-  </div>
-  <br />
-  <br />
-  <br />
-  <div class="person-div">
-    <div class="name-wrapper"> 
-    <input type="text" id="name-three" class="enter-name" />
-    <h2 id="mom-name" class="display-name"></h2>
-    </div>
-    <div class="money-winnings-wins-king"> 
-    <h2 id="mm" class="display-money">0</h2>
-    <h2 class="prize-won" id="mom-prize"> 0 </h2>
-    <h2 id="display-wins-mom" class="display-wins-area">0</h2>
-    <h2 class="king" id="mom-king"> </h2>
-</div>
-<div class="entermoney-red-position-wrapper">
-    <h2 id="mom-red" class="red-circle"> 🔴 </h2>
-
-    <input type="number" id="mi" class="enter-money-area" />
-    <input type="number" id="position-mom" class="position-rankings" />
-  </div>
-  <br /><br />
-  </div>
-  <br />
-  <br />
-  <br />
-  <div id="dad-div" class="person-div">
-    <div class="name-wrapper"> 
-      <h2 id="dad-name" class="display-name"> </h2>
-      <input type="text" id="name-four" class="enter-name" />
- 
-  </div>
-  <div class="money-winnings-wins-king"> 
-    <h2 id="dm" class="display-money">0</h2>
-    <h2 class="prize-won" id="dad-prize"> 0 </h2>
-    <h2 id="display-wins-dad" class="display-wins-area">0</h2>
-    <h2 class="king" id="dad-king"> </h2>
-  </div>
-
-<div class="entermoney-red-position-wrapper">
-    <h2 id="dad-red" class="red-circle"> 🔴 </h2>
-    <input type="number" id="di" class="enter-money-area" />
-    <input type="number" id="position-dad" class="position-rankings" />
-  </div>
-  <br /><br />
-  </div>
-<br/>
-  <button id="reset-button"> Reset Last Move </button>
-</div>
-
-  <table id="high-score">
-    <tr>
-      <th colspan="4">
-        Highest $$$
-      </th>
-    </tr>
-    <tr>
-      <td class="table-name-firstperson">
-        p 1
-      </td>
-      <td class="table-name-secondperson">
-        p 2
-      </td>
-      <td class="table-name-thirdperson">
-        p 3
-      </td>
-      <td class="table-name-fourthperson">
-        p 4
-      </td>
-    </tr>
-    <tr>
-      <td id="tony-highscore">
-
-      </td>
-      <td id="eric-highscore">
-
-      </td>
-      <td id="mom-highscore">
-
-      </td>
-      <td id="dad-highscore">
-
-      </td>
-    </tr>
-
-  </table>
-  <table id="lowest-score">
-    <tr>
-      <th colspan="4">
-        Lowest $$$
-      </th>
-    </tr>
-    <tr>
-      <td class="table-name-firstperson">
-        p 1
-      </td>
-      <td class="table-name-secondperson">
-        p 2
-      </td>
-      <td class="table-name-thirdperson">
-        p 3
-      </td>
-      <td class="table-name-fourthperson">
-        p 4
-      </td>
-    </tr>
-    <tr>
-      <td id="tony-lowscore">
-
-      </td>
-      <td id="eric-lowscore">
-
-      </td>
-      <td id="mom-lowscore">
-
-      </td>
-      <td id="dad-lowscore">
-
-      </td>
-    </tr>
-  </table>
-
-  </table>
-  <table id="money-made-chart">
-    <tr>
-      <th colspan="4">
-        Money Received
-      </th>
-    </tr>
-    <tr>
-      <td class="table-name-firstperson">
-        p 1
-      </td>
-      <td class="table-name-secondperson">
-        p 2
-      </td>
-      <td class="table-name-thirdperson">
-        p 3
-      </td>
-      <td class="table-name-fourthperson">
-        p 4
-      </td>
-    </tr>
-    <tr>
-      <td id="tony-moneymade">
-        0
-      </td>
-      <td id="eric-moneymade">
-        0
-      </td>
-      <td id="mom-moneymade">
-        0
-      </td>
-      <td id="dad-moneymade">
-        0
-      </td>
-    </tr>
-  </table>
-
-  <table id="highest-money-made-chart">
-    <tr>
-      <th colspan="4">
-        Highest Single Win
-      </th>
-    </tr>
-    <tr>
-      <td class="table-name-firstperson">
-        p 1
-      </td>
-      <td class="table-name-secondperson">
-        p 2
-      </td>
-      <td class="table-name-thirdperson">
-        p 3
-      </td>
-      <td class="table-name-fourthperson">
-        p 4
-      </td>
-    </tr>
-    <tr>
-      <td id="tony-highest-money-received">
-        0
-      </td>
-      <td id="eric-highest-money-received">
-        0
-      </td>
-      <td id="mom-highest-money-received">
-        0
-      </td>
-      <td id="dad-highest-money-received">
-        0
-      </td>
-    </tr>
-  </table>
-
-  <div id="history">
-    <p>History</p>
-  </div>
-
-  </br>
-  </br>
-</div>
-<script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
 
 </html>
