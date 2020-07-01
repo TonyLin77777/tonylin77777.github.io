@@ -7,6 +7,7 @@
   </title>
   <link rel="shortcut icon" type="image/png" href="favicon-mc.png" />
   <link href="index-new.css" type="text/css" rel="stylesheet" />
+ 
 </head>
 
 <body>
@@ -53,7 +54,7 @@
         Position
       </label>
       <select class="position-dropdownlist" id="position-form-player1" required>
-        <option value="1"> 1 </option>
+        <option selected value="1"> 1 </option>
         <option value="2"> 2 </option>
         <option value="3"> 3 </option>
         <option value="4"> 4 </option>
@@ -82,7 +83,7 @@
       </label>
       <select class="position-dropdownlist" id="position-form-player2" required>
         <option value="1"> 1 </option>
-        <option value="2"> 2 </option>
+        <option selected value="2"> 2 </option>
         <option value="3"> 3 </option>
         <option value="4"> 4 </option>
       </select>
@@ -107,10 +108,10 @@
       <label class="position-label label" for="position-form-player3">
         Position
       </label>
-      <select class="position-dropdownlist" id="position-form-player3" required>
+      <select class="position-dropdownlist" id="position-form-player3"   required>
         <option value="1"> 1 </option>
         <option value="2"> 2 </option>
-        <option value="3"> 3 </option>
+        <option selected value="3"> 3 </option>
         <option value="4"> 4 </option>
       </select>
       </div>
@@ -139,7 +140,7 @@
           <option value="1"> 1 </option>
           <option value="2"> 2 </option>
           <option value="3"> 3 </option>
-          <option value="4"> 4 </option>
+          <option selected value="4"> 4 </option>
         </select>
       </div>
 
@@ -200,7 +201,6 @@
       <br />
       <div class="person-div">
         <div class="name-wrapper">
-
           <h2 id="name-player2" class="display-name"></h2>
         </div>
         <div class="money-winnings-wins-king">
@@ -263,8 +263,12 @@
         <br /><br />
       </div>
       <br />
-      <button id="reset-button"> Reset Last Move </button>
+      <button id="undo-button"> Undo Last Move </button>
+      <a href="statsPage.html" target="_blank"> <button id="see-charts-button"> View Stats  </button> </a>
     </div>
+
+
+   
 
     <table id="high-score">
       <tr>
@@ -302,6 +306,7 @@
       </tr>
 
     </table>
+
     <table id="lowest-score">
       <tr>
         <th colspan="4">

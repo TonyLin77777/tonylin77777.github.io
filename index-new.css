@@ -61,69 +61,54 @@ nav ul li {
 
 /* Form Styles */
 form {
-  width: 100vw;
-  height: 100vh;
-  text-align: center;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
 }
 
 .player-information {
- overflow: hidden;
-  position: relative;
+    overflow: hidden;
+    position: relative;
     width: 40vw;
     height: 30vh;
     margin: 1vh 1vh;
     border: 1vh solid black;
     display: inline-block;
-  }
-  .player-information h2 {
+}
+.player-information h2 {
     display: inline-block;
     padding: 1vh;
     border: 1px solid black;
-  
-  }
- 
+}
 
-  #submit-button{
+#submit-button {
     margin: 0 auto;
     color: white;
     background-color: black;
     padding: 1vh;
     width: 10vw;
     height: 8vh;
-    font-size: 4vh;
+    font-size: 2vw;
     display: block;
     cursor: pointer;
     border: none;
     outline: none;
-  }
-  .label {
-    display: inline-block;
-  
-  }
-  /*
-  .position-label, .name-label, .money-label{
-position: relative;
-left: 3vw;
-  }
- .name-label input {
-   position: absolute;
-   left: 10vw;
- }
- .position-label input {
-  position: absolute;
-  left: 10vw;
 }
-.money-label input {
-  position: absolute;
-  left: 10vw;
+.label {
+    display: block;
+    position: absolute;
 }
-*/
+
 /* ----------------------------- */
 .red-circle {
+    visibility: hidden;
     position: relative;
     right: 5vw;
 }
-.money-winnings-wins-king {
+.enter-money-area{
+height: 2vw;
+width: 10vw;
+font-size: 2vw;
 }
 form {
     display: block;
@@ -148,13 +133,13 @@ form {
     bottom: 1vh;
     right: 1vw;
 }
-#container-for-everyone-and-reset {
+#container-for-everyone-and-undo {
     height: 100vh;
     overflow-y: scroll;
 }
 #main-container {
     background-color: skyblue;
-    visibility: hidden;
+    display: none;
 }
 
 .person-div {
@@ -186,9 +171,8 @@ form {
     display: inline-block;
 }
 
-#reset-button {
-    display: block;
-    margin: 1vh auto;
+#undo-button, #see-charts-button {
+    display: inline-block;
     width: 15vw;
     height: 10vh;
     color: white;
@@ -197,7 +181,7 @@ form {
     cursor: pointer;
     font-size: 1.5vw;
 }
-#reset-button:active {
+#undo-button:active {
     background-color: white;
     color: black;
 }
@@ -226,5 +210,5 @@ input {
     width: 10vw;
     min-width: 100px;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
 }
