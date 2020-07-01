@@ -171,7 +171,7 @@ form {
     display: inline-block;
 }
 
-#undo-button, #see-charts-button {
+.button {
     display: inline-block;
     width: 15vw;
     height: 10vh;
