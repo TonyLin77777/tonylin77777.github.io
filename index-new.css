@@ -115,7 +115,7 @@ form {
 }
 .money-winnings-wins-king,
 .entermoney-red-position-wrapper {
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     text-align: center;
     display: inline-block;
@@ -125,7 +125,6 @@ form {
 }
 .entermoney-red-position-wrapper {
     width: 30%;
-    margin: 0 1vw;
     overflow: hidden;
 }
 .entermoney-red-position-wrapper input {
@@ -160,7 +159,6 @@ form {
     height: 100%;
     width: 20%;
     border: 1px solid red;
-    margin: 0 1vw;
     overflow: auto;
 }
 .person-div h2 {
