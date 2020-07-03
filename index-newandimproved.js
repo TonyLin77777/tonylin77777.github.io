@@ -240,10 +240,11 @@ undoButton.addEventListener("click", function (event) {
 });
 // event listener to delete the form and show the container
 // retrieves all of the form data
-let submitButton = document.getElementById("submit-button");
-submitButton.addEventListener("click", function (event) {
+let form = document.getElementById("form");
+form.addEventListener("submit", function (event) {
     // prevents default behaviour
     event.preventDefault();
+    console.log('lol');
     // deletes the form and shows the counter
     document.getElementById("form").style.display = "none";
     document.getElementById("main-container").style.display = "block";
