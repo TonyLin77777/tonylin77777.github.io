@@ -7,7 +7,7 @@
   </title>
   <link rel="shortcut icon" type="image/png" href="favicon-mc.png" />
   <link href="index-new.css" type="text/css" rel="stylesheet" />
- 
+
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     <ul>
       <li><a href="#">Instructions</a></li>
       <li><a href="#">Credits</a></li>
-      <li><a href="#">Donations</a></li>
+      <li><a target="_blank" href="https://www.paypal.me/TONYMAN77777">Donations</a></li>
     </ul>
   </nav>
 
@@ -26,10 +26,11 @@
   <!-- method="GET" action="./index-newandimporved.html" target="_blank" -->
 
   <form id="form">
-   
+
     <h1> Enter Information Regarding Each Player </h1>
     <div class="player-information" id="player1">
       <h2>Player 1</h2>
+      <div class="form-player-body"> 
       <div class="name-form-wrapper">
         <label class="name-label label" for="name-form-player1">
           Name
@@ -38,22 +39,23 @@
       </div>
 
       <div class="position-form-wrapper">
-      <label class="position-label label" for="position-form-player1">
-        Position
-      </label>
-      <select class="position-dropdownlist" id="position-form-player1" required>
-        <option selected value="1"> 1 </option>
-        <option value="2"> 2 </option>
-        <option value="3"> 3 </option>
-        <option value="4"> 4 </option>
-      </select>
-    </div>
+        <label class="position-label label" for="position-form-player1">
+          Position
+        </label>
+        <select class="position-dropdownlist" id="position-form-player1" required>
+          <option selected value="1"> 1 </option>
+          <option value="2"> 2 </option>
+          <option value="3"> 3 </option>
+          <option value="4"> 4 </option>
+        </select>
+      </div>
 
-    <div class="money-form-wrapper">
-      <label class="money-label label" for="money-form-player1">
-        Money
-      </label>
-      <input type="number" class="money-input" value=100 id="money-form-player1" required />
+      <div class="money-form-wrapper">
+        <label class="money-label label" for="money-form-player1">
+          Money
+        </label>
+        <input type="number" class="money-input" value=100 id="money-form-player1" required />
+      </div>
     </div>
     </div>
     <div class="player-information" id="player2">
@@ -62,26 +64,26 @@
         <label class="name-label label" for="name-form-player2">
           Name
         </label>
-        <input  value="Eric" type="text" class="name-input" placeholder="Player 2" id="name-form-player2" required />
+        <input value="Eric" type="text" class="name-input" placeholder="Player 2" id="name-form-player2" required />
       </div>
 
       <div class="position-form-wrapper">
-      <label class="position-label label" for="position-form-player2">
-        Position
-      </label>
-      <select class="position-dropdownlist" id="position-form-player2" required>
-        <option value="1"> 1 </option>
-        <option selected value="2"> 2 </option>
-        <option value="3"> 3 </option>
-        <option value="4"> 4 </option>
-      </select>
+        <label class="position-label label" for="position-form-player2">
+          Position
+        </label>
+        <select class="position-dropdownlist" id="position-form-player2" required>
+          <option value="1"> 1 </option>
+          <option selected value="2"> 2 </option>
+          <option value="3"> 3 </option>
+          <option value="4"> 4 </option>
+        </select>
       </div>
       <div class="money-form-wrapper">
-      <label class="money-label label" for="money-form-player2">
-        Money
-      </label>
-      <input type="number" class="money-input" value=100 id="money-form-player2" required />
-    </div>
+        <label class="money-label label" for="money-form-player2">
+          Money
+        </label>
+        <input type="number" class="money-input" value=100 id="money-form-player2" required />
+      </div>
     </div>
     <div class="player-information" id="player3">
       <h2>Player 3</h2>
@@ -89,27 +91,27 @@
         <label class="name-label label" for="name-form-player3">
           Name
         </label>
-        <input  value="Mom" type="text" class="name-input" placeholder="Player 3" id="name-form-player3" required />
+        <input value="Mom" type="text" class="name-input" placeholder="Player 3" id="name-form-player3" required />
       </div>
 
       <div class="position-form-wrapper">
-      <label class="position-label label" for="position-form-player3">
-        Position
-      </label>
-      <select class="position-dropdownlist" id="position-form-player3"   required>
-        <option value="1"> 1 </option>
-        <option value="2"> 2 </option>
-        <option selected value="3"> 3 </option>
-        <option value="4"> 4 </option>
-      </select>
+        <label class="position-label label" for="position-form-player3">
+          Position
+        </label>
+        <select class="position-dropdownlist" id="position-form-player3" required>
+          <option value="1"> 1 </option>
+          <option value="2"> 2 </option>
+          <option selected value="3"> 3 </option>
+          <option value="4"> 4 </option>
+        </select>
       </div>
 
       <div class="money-form-wrapper">
-      <label class="money-label label" for="money-form-player3">
-        Money
-      </label>
-      <input type="number" class="money-input" value=100 id="money-form-player3" required />
-    </div>
+        <label class="money-label label" for="money-form-player3">
+          Money
+        </label>
+        <input type="number" class="money-input" value=100 id="money-form-player3" required />
+      </div>
     </div>
     <div class="player-information" id="player4">
       <h2>Player 4</h2>
@@ -117,7 +119,7 @@
         <label class="name-label label" for="name-form-player4">
           Name
         </label>
-        <input  value="Dad" type="text" class="name-input" placeholder="Player 4" id="name-form-player4" required />
+        <input value="Dad" type="text" class="name-input" placeholder="Player 4" id="name-form-player4" required />
       </div>
 
       <div class="position-form-wrapper">
@@ -133,13 +135,14 @@
       </div>
 
       <div class="money-form-wrapper">
-      <label class="money-label label" for="money-form-player4">
-        Money
-      </label>
-      <input type="number" class="money-input" value=100 id="money-form-player4" required />
+        <label class="money-label label" for="money-form-player4">
+          Money
+        </label>
+        <input type="number" class="money-input" value=100 id="money-form-player4" required />
+      </div>
     </div>
-    </div>
-    <input type="submit" value="Submit" id="submit-button">
+    <button type="submit" id="submit-button">Submit</button>
+    <!-- <input type="submit" value="Submit" id="submit-button"> -->
   </form>
 
 
@@ -251,13 +254,13 @@
         <br /><br />
       </div>
       <br />
-      <a href="history.html" target="_blank" > <button id="history-button" class="button" > View History  </button> </a>
+      <a href="history.html" target="_blank"> <button id="history-button" class="button"> View History </button> </a>
       <button id="undo-button" class="button"> Undo Last Move </button>
-      <a href="statsPage.html"  target="_blank"> <button id="see-charts-button" class="button"> View Stats  </button> </a>
+      <a href="statsPage.html" target="_blank"> <button id="see-charts-button" class="button"> View Stats </button> </a>
     </div>
 
 
-   
+
 
     <table id="high-score">
       <tr>
