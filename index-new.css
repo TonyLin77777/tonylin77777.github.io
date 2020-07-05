@@ -85,12 +85,9 @@ form {
 }
 
 .form-player-body{
-    width: 80%;
-    height: 60%;
-    margin: 0 auto;
-    border: 1px solid red;
+
     text-align: center;
-    font-size: 2rem;
+   
 }
 .form-player-body input,.form-player-body select {
     width: 10vw;
