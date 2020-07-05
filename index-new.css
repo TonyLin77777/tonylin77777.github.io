@@ -143,6 +143,9 @@ form {
 form {
     display: block;
 }
+#buttons-container{
+text-align: center;
+}
 .money-winnings-wins-king,
 .entermoney-red-position-wrapper {
     overflow-x: auto;

@@ -3,6 +3,8 @@ input {
     position: absolute;
     left: 500px;
 }
-
-
-
+td,
+th {
+    border: 1px solid white;
+    text-align: center;
+}
