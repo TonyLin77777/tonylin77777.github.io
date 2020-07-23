@@ -89,10 +89,10 @@ form {
     text-align: center;
    
 }
-.form-player-body input,.form-player-body select {
+/* .form-player-body input,.form-player-body select {
     width: 10vw;
     height: 2vw;
-}
+} */
 .player-information {
     overflow: hidden;
     position: relative;
